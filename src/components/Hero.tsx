@@ -19,7 +19,7 @@ export default function Hero() {
           {/* Company Logo */}
           <div className="mb-6">
             <Image
-              src="/images/west-coast-logo.png"
+              src="/images/west-coast-logo-v2.png"
               alt="West Coast Air Duct and Chimney Services"
               width={400}
               height={120}
