@@ -5,8 +5,8 @@ import type { Metadata } from "next";
 const PHONE = "424-424-1579";
 
 export const metadata: Metadata = {
-  title: "Air Duct & Chimney Services in Riverside County | SoCal Air Duct Pros",
-  description: "Professional air duct cleaning, chimney services, and dryer vent cleaning in Riverside County. Serving Riverside, Corona, Temecula, Palm Springs & more. Call 424-424-1579.",
+  title: "Air Duct & Chimney Services in Riverside County | West Coast Air Duct and Chimney Services",
+  description: "Professional air duct cleaning, chimney services, and dryer vent cleaning in Riverside County. Same-day service. Call 424-424-1579.",
 };
 
 const cities = [
@@ -59,7 +59,7 @@ export default function RiversidePage() {
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Serving All of Riverside County</h2>
               <p className="text-gray-600 mb-4">
-                From the growing communities of Corona and Temecula to the desert cities of Palm Springs and Indio, SoCal Air Duct Pros provides expert air duct and chimney services throughout Riverside County.
+                From the growing communities of Corona and Temecula to the desert cities of Palm Springs and Indio, West Coast Air Duct and Chimney Services provides expert air duct and chimney services throughout Riverside County.
               </p>
               <p className="text-gray-600 mb-4">
                 Riverside County's diverse climate - from the hot desert valleys to the cooler mountain communities - creates unique challenges for HVAC systems. Desert dust, extreme heat, and varying humidity levels all impact air quality. Our technicians are experienced with the specific needs of Riverside County homes.

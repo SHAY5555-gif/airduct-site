@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 const PHONE = "424-424-1579";
 
 export const metadata: Metadata = {
-  title: "Chimney Repair Services | Cracks, Leaks & Masonry | SoCal Air Duct Pros",
+  title: "Chimney Repair Services | West Coast Air Duct and Chimney Services",
   description: "Professional chimney repair in Southern California. Fix cracks, leaks, damaged liners, and masonry issues. Call 424-424-1579 for expert repairs.",
 };
 

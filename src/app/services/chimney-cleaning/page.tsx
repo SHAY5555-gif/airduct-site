@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 const PHONE = "424-424-1579";
 
 export const metadata: Metadata = {
-  title: "Chimney Cleaning Services | Creosote Removal | SoCal Air Duct Pros",
+  title: "Chimney Cleaning Services | West Coast Air Duct and Chimney Services",
   description: "Professional chimney cleaning in Southern California. Remove creosote, debris, and blockages for safe fireplace operation. Call 424-424-1579.",
 };
 

@@ -11,7 +11,8 @@ const services = [
   "System Inspections",
   "Chimney Installation",
   "Chimney Repairs",
-  "Chimney Cleaning"
+  "Chimney Cleaning",
+  "Other"
 ];
 
 const counties = [

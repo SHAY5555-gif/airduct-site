@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 const PHONE = "424-424-1579";
 
 export const metadata: Metadata = {
-  title: "Chimney Installation Services | New Chimneys & Liners | SoCal Air Duct Pros",
+  title: "Chimney Installation Services | West Coast Air Duct and Chimney Services",
   description: "Professional chimney installation in Southern California. New chimney construction, liner installation, and code-compliant work. Call 424-424-1579.",
 };
 

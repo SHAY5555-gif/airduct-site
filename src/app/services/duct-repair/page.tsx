@@ -5,8 +5,8 @@ import type { Metadata } from "next";
 const PHONE = "424-424-1579";
 
 export const metadata: Metadata = {
-  title: "Duct Repair Services | Fix Leaks & Damage | SoCal Air Duct Pros",
-  description: "Professional duct repair services in Southern California. Fix leaks, damaged sections, and airflow problems. Call 424-424-1579 for expert ductwork repairs.",
+  title: "Duct Repair Services | West Coast Air Duct and Chimney Services",
+  description: "Professional duct repair services in Southern California. Fix leaks, damaged sections, and airflow problems. Same-day service available. Call 424-424-1579.",
 };
 
 export default function DuctRepairPage() {

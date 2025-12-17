@@ -5,8 +5,8 @@ import type { Metadata } from "next";
 const PHONE = "424-424-1579";
 
 export const metadata: Metadata = {
-  title: "Air Duct & Chimney Services in San Bernardino County | SoCal Air Duct Pros",
-  description: "Professional air duct cleaning, chimney services, and dryer vent cleaning in San Bernardino County. Serving San Bernardino, Fontana, Ontario, Rancho Cucamonga & more. Call 424-424-1579.",
+  title: "Air Duct & Chimney Services in San Bernardino County | West Coast Air Duct and Chimney Services",
+  description: "Professional air duct cleaning, chimney services, and dryer vent cleaning in San Bernardino County. Same-day service. Call 424-424-1579.",
 };
 
 const cities = [
@@ -59,7 +59,7 @@ export default function SanBernardinoPage() {
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Serving All of San Bernardino County</h2>
               <p className="text-gray-600 mb-4">
-                From the bustling Inland Empire cities of Fontana and Ontario to the mountain communities of Big Bear and Lake Arrowhead, SoCal Air Duct Pros provides expert air duct and chimney services throughout San Bernardino County.
+                From the bustling Inland Empire cities of Fontana and Ontario to the mountain communities of Big Bear and Lake Arrowhead, West Coast Air Duct and Chimney Services provides expert air duct and chimney services throughout San Bernardino County.
               </p>
               <p className="text-gray-600 mb-4">
                 San Bernardino County spans from the desert to the mountains, creating diverse climate conditions. Mountain homes rely heavily on fireplaces and chimneys during cold winters, while valley and desert homes deal with dust and extreme heat. We understand these varying needs and provide appropriate solutions.

@@ -2,10 +2,16 @@ export function LocalBusinessSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
-    "name": "SoCal Air Duct Pros",
-    "description": "Professional air duct cleaning, duct repair, dryer vent cleaning, and chimney services across Los Angeles, Orange, Riverside, and San Bernardino Counties.",
+    "name": "West Coast Air Duct and Chimney Services",
+    "description": "Professional air duct cleaning, duct repair, dryer vent cleaning, and chimney services across Southern California. Same-day appointments and 24/7 emergency service available.",
     "telephone": "424-424-1579",
-    "url": "https://socalairductpros.com",
+    "url": "https://westcoastairduct.com",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
     "areaServed": [
       {
         "@type": "County",

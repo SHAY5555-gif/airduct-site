@@ -16,13 +16,15 @@ export default function Hero() {
       </div>
       <div className="relative container-custom py-12 md:py-20">
         <div className="max-w-3xl">
+          {/* Generic H1 - no city/county */}
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-            Air Duct & Chimney Services in Los Angeles, Orange, Riverside & San Bernardino Counties
+            Air Duct & Chimney Services You Can Trust
           </h1>
           <p className="text-lg md:text-xl text-blue-100 mb-6">
-            Professional air duct cleaning, duct repairs, dryer vent cleaning, and chimney services for safer, cleaner air in your home.
+            Professional air duct cleaning, duct repair, dryer vent cleaning, and chimney services for safer, cleaner homes.
           </p>
 
+          {/* Phone CTA block */}
           <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-6 inline-block">
             <p className="text-blue-200 text-sm mb-1">Call now for a free estimate</p>
             <a
@@ -33,6 +35,7 @@ export default function Hero() {
             </a>
           </div>
 
+          {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
             <a
               href={`tel:${PHONE}`}
@@ -48,30 +51,31 @@ export default function Hero() {
             </a>
           </div>
 
+          {/* Trust bullets - updated with same-day and 24/7 messaging */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="flex items-center gap-2">
               <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
-              <span className="text-sm">Fully Licensed & Insured</span>
+              <span className="text-sm">Same-day appointments available</span>
             </div>
             <div className="flex items-center gap-2">
               <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
-              <span className="text-sm">Serving 4 SoCal Counties</span>
+              <span className="text-sm">24-hour emergency service</span>
             </div>
             <div className="flex items-center gap-2">
               <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
-              <span className="text-sm">Honest Up-Front Pricing</span>
+              <span className="text-sm">Residential & commercial</span>
             </div>
             <div className="flex items-center gap-2">
               <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
-              <span className="text-sm">Residential & Commercial</span>
+              <span className="text-sm">Fully licensed & insured</span>
             </div>
           </div>
         </div>

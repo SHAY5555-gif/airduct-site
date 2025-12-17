@@ -5,8 +5,8 @@ import type { Metadata } from "next";
 const PHONE = "424-424-1579";
 
 export const metadata: Metadata = {
-  title: "Air Duct & Chimney Services in Los Angeles County | SoCal Air Duct Pros",
-  description: "Professional air duct cleaning, chimney services, and dryer vent cleaning in Los Angeles County. Serving LA, Long Beach, Santa Monica, Pasadena & more. Call 424-424-1579.",
+  title: "Air Duct & Chimney Services in Los Angeles County | West Coast Air Duct and Chimney Services",
+  description: "Professional air duct cleaning, chimney services, and dryer vent cleaning in Los Angeles County. Same-day service. Call 424-424-1579.",
 };
 
 const cities = [
@@ -60,7 +60,7 @@ export default function LosAngelesPage() {
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Serving All of Los Angeles County</h2>
               <p className="text-gray-600 mb-4">
-                From the beaches of Santa Monica to the valleys of the San Fernando, SoCal Air Duct Pros provides professional air duct and chimney services throughout Los Angeles County.
+                From the beaches of Santa Monica to the valleys of the San Fernando, West Coast Air Duct and Chimney Services provides professional air duct and chimney services throughout Los Angeles County.
               </p>
               <p className="text-gray-600 mb-4">
                 Los Angeles homes face unique challenges: Santa Ana winds bring dust and debris, older homes have aging ductwork, and the dry climate creates fire risks from chimney buildup. Our team understands these local conditions and provides tailored solutions.

@@ -5,8 +5,8 @@ import type { Metadata } from "next";
 const PHONE = "424-424-1579";
 
 export const metadata: Metadata = {
-  title: "Air Duct Cleaning Services | Los Angeles, Orange, Riverside & San Bernardino | SoCal Air Duct Pros",
-  description: "Professional air duct cleaning services in Southern California. Remove dust, allergens, and debris from your HVAC system. Call 424-424-1579 for a free estimate.",
+  title: "Air Duct Cleaning Services | West Coast Air Duct and Chimney Services",
+  description: "Professional air duct cleaning services in Southern California. Remove dust, allergens, and debris from your HVAC system. Same-day appointments available. Call 424-424-1579.",
 };
 
 export default function AirDuctCleaningPage() {

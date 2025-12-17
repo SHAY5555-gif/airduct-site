@@ -5,8 +5,8 @@ import type { Metadata } from "next";
 const PHONE = "424-424-1579";
 
 export const metadata: Metadata = {
-  title: "Air Duct & Chimney Services in Orange County | SoCal Air Duct Pros",
-  description: "Professional air duct cleaning, chimney services, and dryer vent cleaning in Orange County. Serving Anaheim, Irvine, Santa Ana, Newport Beach & more. Call 424-424-1579.",
+  title: "Air Duct & Chimney Services in Orange County | West Coast Air Duct and Chimney Services",
+  description: "Professional air duct cleaning, chimney services, and dryer vent cleaning in Orange County. Same-day service. Call 424-424-1579.",
 };
 
 const cities = [
@@ -59,7 +59,7 @@ export default function OrangeCountyPage() {
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Serving All of Orange County</h2>
               <p className="text-gray-600 mb-4">
-                From coastal communities like Newport Beach and Laguna to inland cities like Anaheim and Irvine, SoCal Air Duct Pros provides expert air duct and chimney services throughout Orange County.
+                From coastal communities like Newport Beach and Laguna to inland cities like Anaheim and Irvine, West Coast Air Duct and Chimney Services provides expert air duct and chimney services throughout Orange County.
               </p>
               <p className="text-gray-600 mb-4">
                 Orange County's coastal climate can lead to moisture issues in ductwork, while the dry Santa Ana wind season brings dust and debris. Our technicians understand these local conditions and provide solutions tailored to OC homes.

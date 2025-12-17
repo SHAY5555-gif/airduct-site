@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 const PHONE = "424-424-1579";
 
 export const metadata: Metadata = {
-  title: "HVAC & Duct System Inspections | SoCal Air Duct Pros",
+  title: "HVAC & Duct System Inspections | West Coast Air Duct and Chimney Services",
   description: "Comprehensive HVAC and duct system inspections in Southern California. Identify issues before they become costly problems. Call 424-424-1579.",
 };
 

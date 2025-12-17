@@ -5,8 +5,8 @@ import type { Metadata } from "next";
 const PHONE = "424-424-1579";
 
 export const metadata: Metadata = {
-  title: "Dryer Vent Cleaning | Fire Prevention | SoCal Air Duct Pros",
-  description: "Professional dryer vent cleaning in Southern California. Prevent fires, reduce drying time, and save energy. Call 424-424-1579 for service.",
+  title: "Dryer Vent Cleaning | West Coast Air Duct and Chimney Services",
+  description: "Professional dryer vent cleaning in Southern California. Prevent fires, reduce drying time, and save energy. Same-day service. Call 424-424-1579.",
 };
 
 export default function DryerVentCleaningPage() {
