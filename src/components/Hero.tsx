@@ -4,7 +4,7 @@ const PHONE = "424-424-1579";
 
 export default function Hero() {
   return (
-    <section className="relative bg-gradient-to-br from-blue-900 to-blue-800 text-white">
+    <section className="relative bg-gradient-to-br from-blue-900 to-blue-800 text-white pt-12 pb-12 md:pt-16 md:pb-16">
       <div className="absolute inset-0 opacity-20">
         <Image
           src="/images/family-clean-air.png"
@@ -14,7 +14,7 @@ export default function Hero() {
           priority
         />
       </div>
-      <div className="relative container-custom py-12 md:py-20">
+      <div className="relative container-custom pt-8 pb-8 md:pt-12 md:pb-12">
         <div className="max-w-3xl">
           {/* Generic H1 - no city/county */}
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
