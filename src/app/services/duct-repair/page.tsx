@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 export default function DuctRepairPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-blue-900 to-blue-800 text-white py-16">
+      <section className="bg-gradient-to-br from-blue-900 to-blue-800 text-white pt-20 pb-16">
         <div className="container-custom">
           <div className="max-w-3xl">
-            <Link href="/#services" className="text-blue-300 hover:text-white mb-4 inline-flex items-center gap-2">
+            <Link href="/#services" className="text-blue-300 hover:text-white mb-6 inline-flex items-center gap-2">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
@@ -97,10 +97,10 @@ export default function DuctRepairPage() {
         </div>
       </section>
 
-      <section className="section-padding bg-blue-900 text-white">
+      <section className="py-16 md:py-20 bg-blue-900 text-white">
         <div className="container-custom text-center">
-          <h2 className="text-3xl font-bold mb-4">Stop Wasting Money on Lost Air</h2>
-          <p className="text-xl text-blue-200 mb-8 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold mb-6">Stop Wasting Money on Lost Air</h2>
+          <p className="text-xl text-blue-200 mb-10 max-w-2xl mx-auto">
             Professional duct repair can improve your system's efficiency and lower your energy bills. Call for a free inspection today.
           </p>
           <a href={`tel:${PHONE}`} className="btn-secondary inline-block text-lg py-4 px-8">
