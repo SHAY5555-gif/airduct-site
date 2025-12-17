@@ -16,17 +16,6 @@ export default function Hero() {
       </div>
       <div className="relative container-custom pt-8 pb-8 md:pt-12 md:pb-12">
         <div className="max-w-3xl">
-          {/* Company Logo */}
-          <div className="mb-6">
-            <Image
-              src="/images/west-coast-logo-v2.png"
-              alt="West Coast Air Duct and Chimney Services"
-              width={400}
-              height={120}
-              className="w-auto h-auto max-w-[320px] md:max-w-[400px]"
-              priority
-            />
-          </div>
           {/* Generic H1 - no city/county */}
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
             Air Duct & Chimney Services You Can Trust

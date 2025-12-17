@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 const PHONE = "424-424-1579";
@@ -23,15 +24,15 @@ export default function Header() {
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <div className="container-custom">
         <div className="flex items-center justify-between py-4">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center flex-shrink-0">
-              <span className="text-white font-bold text-lg">WC</span>
-            </div>
-            <span className="font-bold text-lg text-gray-900 hidden sm:block leading-tight">
-              West Coast Air Duct<br className="hidden lg:block" />
-              <span className="hidden lg:inline"> and Chimney Services</span>
-              <span className="lg:hidden"> & Chimney</span>
-            </span>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/images/west-coast-logo-v3.jpg"
+              alt="West Coast Air Duct and Chimney Services"
+              width={240}
+              height={60}
+              className="w-[140px] sm:w-[170px] md:w-[200px]"
+              priority
+            />
           </Link>
 
           <nav className="hidden xl:flex items-center gap-5">
