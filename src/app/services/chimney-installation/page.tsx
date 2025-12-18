@@ -1,6 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { Metadata } from "next";
+import PageHero from "@/components/PageHero";
+import GoBackButton from "@/components/GoBackButton";
+import FinancingSection from "@/components/FinancingSection";
+import SecondOpinionCTA from "@/components/SecondOpinionCTA";
 
 const PHONE = "424-424-1579";
 
@@ -12,30 +15,15 @@ export const metadata: Metadata = {
 export default function ChimneyInstallationPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-blue-900 to-blue-800 text-white pt-20 pb-16">
-        <div className="container-custom">
-          <div className="max-w-3xl">
-            <Link href="/#services" className="text-blue-300 hover:text-white mb-6 inline-flex items-center gap-2">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              Back to Services
-            </Link>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Chimney Installation Services
-            </h1>
-            <p className="text-xl text-blue-100 mb-6">
-              Professional installation of new chimneys, liners, and related components.
-            </p>
-            <a href={`tel:${PHONE}`} className="btn-secondary inline-block text-lg py-4 px-8">
-              Call {PHONE} for Free Estimate
-            </a>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title="Chimney Installation Services"
+        subtitle="Professional installation of new chimneys, liners, and related components."
+      />
 
       <section className="section-padding">
         <div className="container-custom">
+          <GoBackButton />
+
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Expert Chimney Installation</h2>
@@ -66,8 +54,8 @@ export default function ChimneyInstallationPage() {
             </div>
             <div className="relative h-80 lg:h-[500px] rounded-xl overflow-hidden">
               <Image
-                src="/images/chimney-exterior-repair.png"
-                alt="Professional chimney installation"
+                src="/images/cozy-fireplace.png"
+                alt="Professionally installed fireplace and chimney"
                 fill
                 className="object-cover"
               />
@@ -110,6 +98,10 @@ export default function ChimneyInstallationPage() {
           </div>
         </div>
       </section>
+
+      <FinancingSection />
+
+      <SecondOpinionCTA />
 
       <section className="py-16 md:py-20 bg-blue-900 text-white">
         <div className="container-custom text-center">

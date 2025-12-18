@@ -1,9 +1,12 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { cities, getCityBySlug } from "@/data/cities";
+import { cities, getCityBySlug, getNearbyCities } from "@/data/cities";
+import PageHero from "@/components/PageHero";
+import GoBackButton from "@/components/GoBackButton";
+import FinancingSection from "@/components/FinancingSection";
+import SecondOpinionCTA from "@/components/SecondOpinionCTA";
 
-const PHONE = "424-424-1579";
 const BRAND_NAME = "West Coast Air Duct and Chimney Services";
 
 const services = [
@@ -46,41 +49,24 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
     notFound();
   }
 
+  // Get nearby cities within 30-mile radius
+  const nearbyCitiesWithPages = getNearbyCities(slug, 30);
+
   return (
     <>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 to-blue-800 text-white py-16">
-        <div className="container-custom">
-          <div className="max-w-3xl">
-            <Link href="/service-areas" className="text-blue-300 hover:text-white mb-4 inline-flex items-center gap-2">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              All Service Areas
-            </Link>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Air Duct & Chimney Services in {city.city}
-            </h1>
-            <p className="text-xl text-blue-100 mb-4">
-              {city.shortDescription}
-            </p>
-            <div className="flex flex-wrap gap-3 mb-6">
-              {city.serviceHighlights.map((highlight, idx) => (
-                <span key={idx} className="bg-blue-800/50 px-3 py-1 rounded-full text-sm">
-                  {highlight}
-                </span>
-              ))}
-            </div>
-            <a href={`tel:${city.phone}`} className="btn-secondary inline-block text-lg py-4 px-8">
-              Call {city.phone} for Service in {city.city}
-            </a>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title={`Air Duct & Chimney Services in ${city.city}`}
+        subtitle={city.shortDescription}
+        serviceHighlights={city.serviceHighlights}
+        phone={city.phone}
+        cityName={city.city}
+      />
 
       {/* About Section */}
       <section className="section-padding">
         <div className="container-custom">
+          <GoBackButton />
+
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
@@ -112,22 +98,56 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                 </div>
               </div>
             </div>
-            <div className="bg-gray-50 p-6 rounded-xl">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Also Serving Nearby Areas</h3>
-              <div className="flex flex-wrap gap-2">
-                {city.nearbyAreas.map((area, idx) => (
-                  <span key={idx} className="bg-white px-3 py-2 rounded-lg shadow-sm text-gray-700">
-                    {area}
-                  </span>
-                ))}
+            <div className="space-y-6">
+              <div className="bg-gray-50 p-6 rounded-xl">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Also Serving Nearby Areas</h3>
+                <div className="flex flex-wrap gap-2">
+                  {city.nearbyAreas.map((area, idx) => (
+                    <span key={idx} className="bg-white px-3 py-2 rounded-lg shadow-sm text-gray-700">
+                      {area}
+                    </span>
+                  ))}
+                </div>
+                <p className="text-gray-600 text-sm mt-4">
+                  Don't see your area? Call us at{" "}
+                  <a href={`tel:${city.phone}`} className="text-blue-800 font-semibold hover:underline">
+                    {city.phone}
+                  </a>{" "}
+                  to confirm service availability.
+                </p>
               </div>
-              <p className="text-gray-600 text-sm mt-4">
-                Don't see your area? Call us at{" "}
-                <a href={`tel:${city.phone}`} className="text-blue-800 font-semibold hover:underline">
-                  {city.phone}
-                </a>{" "}
-                to confirm service availability.
-              </p>
+
+              {/* Nearby Service Areas with Pages (30-mile radius) */}
+              {nearbyCitiesWithPages.length > 0 && (
+                <div className="bg-blue-50 p-6 rounded-xl">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Nearby Service Areas</h3>
+                  <p className="text-gray-600 text-sm mb-4">
+                    We also serve these cities within 30 miles of {city.city}:
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {nearbyCitiesWithPages.slice(0, 8).map((nearbyCity) => (
+                      <Link
+                        key={nearbyCity.slug}
+                        href={`/service-areas/${nearbyCity.slug}`}
+                        className="bg-white px-3 py-2 rounded-lg shadow-sm text-blue-800 hover:bg-blue-100 transition-colors"
+                      >
+                        {nearbyCity.city}
+                      </Link>
+                    ))}
+                  </div>
+                  {nearbyCitiesWithPages.length > 8 && (
+                    <Link
+                      href="/service-areas"
+                      className="text-blue-800 text-sm font-medium mt-3 inline-flex items-center gap-1 hover:underline"
+                    >
+                      View all service areas
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -197,6 +217,10 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
           </div>
         </div>
       </section>
+
+      <FinancingSection />
+
+      <SecondOpinionCTA />
 
       {/* CTA Section */}
       <section className="section-padding bg-blue-900 text-white">

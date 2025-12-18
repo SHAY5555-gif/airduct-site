@@ -7,6 +7,55 @@ export interface City {
   fullDescription: string;
   serviceHighlights: string[];
   nearbyAreas: string[];
+  lat: number;
+  lng: number;
+}
+
+/**
+ * Haversine formula to calculate distance between two points on Earth
+ * @returns Distance in miles
+ */
+export function getDistanceMiles(lat1: number, lng1: number, lat2: number, lng2: number): number {
+  const R = 3959; // Earth's radius in miles
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLng = (lng2 - lng1) * Math.PI / 180;
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+    Math.sin(dLng / 2) * Math.sin(dLng / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
+}
+
+/**
+ * Get cities within a specified radius of a given city
+ * @param citySlug The slug of the city to find nearby cities for
+ * @param radiusMiles Maximum distance in miles (default 30)
+ * @returns Array of nearby cities sorted by distance
+ */
+export function getNearbyCities(citySlug: string, radiusMiles: number = 30): City[] {
+  const city = getCityBySlug(citySlug);
+  if (!city) return [];
+
+  return cities
+    .filter(c => c.slug !== citySlug)
+    .map(c => ({
+      city: c,
+      distance: getDistanceMiles(city.lat, city.lng, c.lat, c.lng)
+    }))
+    .filter(item => item.distance <= radiusMiles)
+    .sort((a, b) => a.distance - b.distance)
+    .map(item => item.city);
+}
+
+/**
+ * Get nearby city names within a specified radius
+ * @param citySlug The slug of the city to find nearby cities for
+ * @param radiusMiles Maximum distance in miles (default 30)
+ * @returns Array of nearby city names
+ */
+export function getNearbyCityNames(citySlug: string, radiusMiles: number = 30): string[] {
+  return getNearbyCities(citySlug, radiusMiles).map(c => c.city);
 }
 
 export const cities: City[] = [
@@ -19,7 +68,9 @@ export const cities: City[] = [
     shortDescription: "Serving the heart of LA with professional air duct and chimney services.",
     fullDescription: "From Downtown LA to the Westside, our team provides expert air duct cleaning, chimney services, and dryer vent cleaning throughout Los Angeles. We understand the unique challenges LA homes face, from Santa Ana winds bringing dust and debris to aging ductwork in historic properties.",
     serviceHighlights: ["Same-day appointments in LA", "24/7 emergency chimney service", "Serving all LA neighborhoods"],
-    nearbyAreas: ["Hollywood", "Downtown LA", "Westside", "Silver Lake", "Echo Park", "Los Feliz"]
+    nearbyAreas: ["Hollywood", "Downtown LA", "Westside", "Silver Lake", "Echo Park", "Los Feliz"],
+    lat: 34.0522,
+    lng: -118.2437
   },
   {
     slug: "long-beach",
@@ -29,7 +80,9 @@ export const cities: City[] = [
     shortDescription: "Professional air duct and chimney services for Long Beach homes and businesses.",
     fullDescription: "Long Beach's coastal location means homes face unique challenges with moisture and salt air affecting HVAC systems and chimneys. Our technicians are experienced with Long Beach properties and provide thorough cleaning and repair services.",
     serviceHighlights: ["Coastal property specialists", "Same-day service available", "Licensed and insured"],
-    nearbyAreas: ["Signal Hill", "Lakewood", "Carson", "Cerritos", "Seal Beach"]
+    nearbyAreas: ["Signal Hill", "Lakewood", "Carson", "Cerritos", "Seal Beach"],
+    lat: 33.7701,
+    lng: -118.1937
   },
   {
     slug: "santa-monica",
@@ -39,7 +92,9 @@ export const cities: City[] = [
     shortDescription: "Expert duct and chimney services for Santa Monica residents.",
     fullDescription: "Santa Monica homes deserve the best care. Our team provides professional air duct cleaning, chimney maintenance, and dryer vent services to keep your beachside home safe and comfortable.",
     serviceHighlights: ["Beach community experts", "Moisture damage prevention", "Emergency response available"],
-    nearbyAreas: ["Pacific Palisades", "Venice", "Mar Vista", "Brentwood", "Malibu"]
+    nearbyAreas: ["Pacific Palisades", "Venice", "Mar Vista", "Brentwood", "Malibu"],
+    lat: 34.0195,
+    lng: -118.4912
   },
   {
     slug: "pasadena",
@@ -49,7 +104,9 @@ export const cities: City[] = [
     shortDescription: "Trusted air duct and chimney services in Pasadena and surrounding areas.",
     fullDescription: "Pasadena is home to many historic properties with older HVAC systems and chimneys that need special attention. Our experienced technicians understand the care these homes require and provide gentle yet thorough services.",
     serviceHighlights: ["Historic home specialists", "Careful restoration approach", "Full inspection services"],
-    nearbyAreas: ["Altadena", "South Pasadena", "San Marino", "Arcadia", "La Canada Flintridge"]
+    nearbyAreas: ["Altadena", "South Pasadena", "San Marino", "Arcadia", "La Canada Flintridge"],
+    lat: 34.1478,
+    lng: -118.1445
   },
   {
     slug: "glendale",
@@ -59,7 +116,9 @@ export const cities: City[] = [
     shortDescription: "Reliable air duct cleaning and chimney services in Glendale.",
     fullDescription: "Glendale residents trust us for professional air duct and chimney services. From the hills to downtown, we serve all Glendale neighborhoods with quality workmanship and honest pricing.",
     serviceHighlights: ["Fast response times", "Competitive pricing", "Bilingual technicians available"],
-    nearbyAreas: ["Burbank", "La Crescenta", "Montrose", "Eagle Rock", "Atwater Village"]
+    nearbyAreas: ["Burbank", "La Crescenta", "Montrose", "Eagle Rock", "Atwater Village"],
+    lat: 34.1425,
+    lng: -118.2551
   },
   {
     slug: "burbank",
@@ -69,7 +128,9 @@ export const cities: City[] = [
     shortDescription: "Professional duct and chimney services for Burbank homes.",
     fullDescription: "Burbank homeowners and businesses rely on us for clean air ducts and safe chimneys. We provide comprehensive services including cleaning, repairs, and inspections for residential and commercial properties.",
     serviceHighlights: ["Residential and commercial", "Studio lot experience", "Same-day availability"],
-    nearbyAreas: ["North Hollywood", "Toluca Lake", "Sun Valley", "Glendale", "Studio City"]
+    nearbyAreas: ["North Hollywood", "Toluca Lake", "Sun Valley", "Glendale", "Studio City"],
+    lat: 34.1808,
+    lng: -118.3090
   },
   {
     slug: "torrance",
@@ -79,7 +140,9 @@ export const cities: City[] = [
     shortDescription: "Comprehensive air duct and chimney services in Torrance.",
     fullDescription: "Torrance homes benefit from our professional air duct cleaning and chimney services. We help maintain healthy indoor air quality and fireplace safety for families throughout the South Bay.",
     serviceHighlights: ["South Bay specialists", "Family-owned service", "Honest assessments"],
-    nearbyAreas: ["Redondo Beach", "Hermosa Beach", "Palos Verdes", "Gardena", "Carson"]
+    nearbyAreas: ["Redondo Beach", "Hermosa Beach", "Palos Verdes", "Gardena", "Carson"],
+    lat: 33.8358,
+    lng: -118.3406
   },
   // Orange County
   {
@@ -90,7 +153,9 @@ export const cities: City[] = [
     shortDescription: "Expert air duct and chimney services in Anaheim.",
     fullDescription: "Anaheim residents trust us for professional air duct cleaning and chimney services. From the Hills to Platinum Triangle, we serve all of Anaheim with reliable, quality service.",
     serviceHighlights: ["Anaheim Hills specialists", "Commercial services available", "24/7 emergency calls"],
-    nearbyAreas: ["Fullerton", "Orange", "Placentia", "Yorba Linda", "Buena Park"]
+    nearbyAreas: ["Fullerton", "Orange", "Placentia", "Yorba Linda", "Buena Park"],
+    lat: 33.8366,
+    lng: -117.9143
   },
   {
     slug: "irvine",
@@ -100,7 +165,9 @@ export const cities: City[] = [
     shortDescription: "Professional duct and chimney services for Irvine homes.",
     fullDescription: "Irvine is known for its master-planned communities and well-maintained homes. We help Irvine homeowners keep their HVAC systems and chimneys in top condition with thorough cleaning and expert repairs.",
     serviceHighlights: ["Modern home experts", "HOA-compliant services", "Detailed documentation"],
-    nearbyAreas: ["Tustin", "Lake Forest", "Newport Beach", "Costa Mesa", "Laguna Woods"]
+    nearbyAreas: ["Tustin", "Lake Forest", "Newport Beach", "Costa Mesa", "Laguna Woods"],
+    lat: 33.6846,
+    lng: -117.8265
   },
   {
     slug: "huntington-beach",
@@ -110,7 +177,9 @@ export const cities: City[] = [
     shortDescription: "Coastal air duct and chimney services in Huntington Beach.",
     fullDescription: "Surf City homes need protection from salt air corrosion and coastal moisture. Our team provides specialized services for Huntington Beach properties to ensure clean air and safe fireplaces.",
     serviceHighlights: ["Coastal property experts", "Corrosion prevention", "Beach community trusted"],
-    nearbyAreas: ["Fountain Valley", "Westminster", "Seal Beach", "Costa Mesa", "Newport Beach"]
+    nearbyAreas: ["Fountain Valley", "Westminster", "Seal Beach", "Costa Mesa", "Newport Beach"],
+    lat: 33.6595,
+    lng: -117.9988
   },
   {
     slug: "santa-ana",
@@ -120,7 +189,9 @@ export const cities: City[] = [
     shortDescription: "Reliable air duct and chimney services in Santa Ana.",
     fullDescription: "As the heart of Orange County, Santa Ana has diverse housing from historic homes to modern developments. We provide tailored services for all property types throughout Santa Ana.",
     serviceHighlights: ["All property types", "Bilingual service", "Flexible scheduling"],
-    nearbyAreas: ["Orange", "Tustin", "Costa Mesa", "Garden Grove", "Irvine"]
+    nearbyAreas: ["Orange", "Tustin", "Costa Mesa", "Garden Grove", "Irvine"],
+    lat: 33.7455,
+    lng: -117.8677
   },
   // Riverside County
   {
@@ -131,7 +202,9 @@ export const cities: City[] = [
     shortDescription: "Trusted air duct and chimney services in Riverside.",
     fullDescription: "Riverside's warm climate and occasional Santa Ana winds create unique challenges for HVAC systems. Our team provides thorough duct cleaning and chimney services to keep Riverside homes comfortable and safe.",
     serviceHighlights: ["Inland Empire experts", "Heat-related system care", "Fast response times"],
-    nearbyAreas: ["Moreno Valley", "Corona", "Norco", "Jurupa Valley", "Rubidoux"]
+    nearbyAreas: ["Moreno Valley", "Corona", "Norco", "Jurupa Valley", "Rubidoux"],
+    lat: 33.9533,
+    lng: -117.3962
   },
   {
     slug: "corona",
@@ -141,7 +214,9 @@ export const cities: City[] = [
     shortDescription: "Professional duct and chimney services for Corona homes.",
     fullDescription: "Corona homeowners trust us for air duct cleaning and chimney maintenance. We serve all Corona neighborhoods with quality workmanship and competitive pricing.",
     serviceHighlights: ["Local team", "Same-day service", "Satisfaction guaranteed"],
-    nearbyAreas: ["Norco", "Eastvale", "Chino Hills", "Riverside", "Yorba Linda"]
+    nearbyAreas: ["Norco", "Eastvale", "Chino Hills", "Riverside", "Yorba Linda"],
+    lat: 33.8753,
+    lng: -117.5664
   },
   {
     slug: "temecula",
@@ -151,7 +226,9 @@ export const cities: City[] = [
     shortDescription: "Expert air duct and chimney services in Temecula wine country.",
     fullDescription: "Temecula's unique climate in wine country means homes need specialized care. From duct cleaning to chimney inspections, we keep Temecula homes comfortable year-round.",
     serviceHighlights: ["Wine country specialists", "New construction services", "Detailed inspections"],
-    nearbyAreas: ["Murrieta", "Menifee", "Lake Elsinore", "Wildomar", "Fallbrook"]
+    nearbyAreas: ["Murrieta", "Menifee", "Lake Elsinore", "Wildomar", "Fallbrook"],
+    lat: 33.4936,
+    lng: -117.1484
   },
   {
     slug: "murrieta",
@@ -161,7 +238,9 @@ export const cities: City[] = [
     shortDescription: "Reliable duct cleaning and chimney services in Murrieta.",
     fullDescription: "Murrieta families deserve clean, healthy air and safe fireplaces. Our professional team provides comprehensive air duct and chimney services throughout Murrieta.",
     serviceHighlights: ["Family-focused service", "Newer home expertise", "Transparent pricing"],
-    nearbyAreas: ["Temecula", "Menifee", "Wildomar", "Winchester", "French Valley"]
+    nearbyAreas: ["Temecula", "Menifee", "Wildomar", "Winchester", "French Valley"],
+    lat: 33.5539,
+    lng: -117.2139
   },
   // San Bernardino County
   {
@@ -172,7 +251,9 @@ export const cities: City[] = [
     shortDescription: "Professional air duct and chimney services in San Bernardino.",
     fullDescription: "San Bernardino's diverse geography from valleys to mountains means varied HVAC and chimney needs. Our experienced technicians serve all of San Bernardino with expert services.",
     serviceHighlights: ["Mountain and valley service", "Emergency response", "All property types"],
-    nearbyAreas: ["Colton", "Rialto", "Highland", "Redlands", "Loma Linda"]
+    nearbyAreas: ["Colton", "Rialto", "Highland", "Redlands", "Loma Linda"],
+    lat: 34.1083,
+    lng: -117.2898
   },
   {
     slug: "ontario",
@@ -182,7 +263,9 @@ export const cities: City[] = [
     shortDescription: "Expert duct and chimney services for Ontario homes and businesses.",
     fullDescription: "Ontario's mix of residential and commercial properties benefit from our comprehensive air duct and chimney services. We serve homes, offices, and industrial properties throughout Ontario.",
     serviceHighlights: ["Commercial specialists", "Industrial experience", "Flexible scheduling"],
-    nearbyAreas: ["Rancho Cucamonga", "Upland", "Montclair", "Chino", "Fontana"]
+    nearbyAreas: ["Rancho Cucamonga", "Upland", "Montclair", "Chino", "Fontana"],
+    lat: 34.0633,
+    lng: -117.6509
   },
   {
     slug: "rancho-cucamonga",
@@ -192,7 +275,9 @@ export const cities: City[] = [
     shortDescription: "Trusted air duct and chimney services in Rancho Cucamonga.",
     fullDescription: "Rancho Cucamonga homeowners appreciate our attention to detail and quality service. From foothill estates to planned communities, we provide expert duct cleaning and chimney care.",
     serviceHighlights: ["Foothill area specialists", "Quality workmanship", "Customer satisfaction focus"],
-    nearbyAreas: ["Upland", "Ontario", "Fontana", "Alta Loma", "Etiwanda"]
+    nearbyAreas: ["Upland", "Ontario", "Fontana", "Alta Loma", "Etiwanda"],
+    lat: 34.1064,
+    lng: -117.5931
   },
   {
     slug: "fontana",
@@ -202,7 +287,9 @@ export const cities: City[] = [
     shortDescription: "Reliable air duct and chimney services in Fontana.",
     fullDescription: "Fontana residents trust us for professional air duct cleaning and chimney services. We help maintain healthy indoor air quality and fireplace safety for growing families.",
     serviceHighlights: ["Growing family specialists", "Competitive rates", "Same-day available"],
-    nearbyAreas: ["Rialto", "Rancho Cucamonga", "Bloomington", "Lytle Creek", "San Bernardino"]
+    nearbyAreas: ["Rialto", "Rancho Cucamonga", "Bloomington", "Lytle Creek", "San Bernardino"],
+    lat: 34.0922,
+    lng: -117.4350
   },
   {
     slug: "victorville",
@@ -212,7 +299,181 @@ export const cities: City[] = [
     shortDescription: "Professional duct and chimney services for High Desert homes.",
     fullDescription: "High Desert homes face unique challenges with dust, temperature extremes, and dry conditions. Our team provides specialized services for Victorville and surrounding High Desert communities.",
     serviceHighlights: ["High Desert experts", "Dust mitigation focus", "Extreme climate experience"],
-    nearbyAreas: ["Hesperia", "Apple Valley", "Adelanto", "Oak Hills", "Phelan"]
+    nearbyAreas: ["Hesperia", "Apple Valley", "Adelanto", "Oak Hills", "Phelan"],
+    lat: 34.5362,
+    lng: -117.2928
+  },
+  // San Diego County
+  {
+    slug: "san-diego",
+    city: "San Diego",
+    county: "San Diego County",
+    phone: "424-424-1579",
+    shortDescription: "Professional air duct and chimney services throughout San Diego.",
+    fullDescription: "San Diego's beautiful climate and coastal location create unique needs for HVAC maintenance. Our team provides expert air duct cleaning, chimney services, and dryer vent cleaning to keep your San Diego home comfortable and safe year-round.",
+    serviceHighlights: ["Coastal climate specialists", "Same-day appointments", "All San Diego neighborhoods"],
+    nearbyAreas: ["La Jolla", "Pacific Beach", "Mission Valley", "Chula Vista", "Coronado"],
+    lat: 32.7157,
+    lng: -117.1611
+  },
+  {
+    slug: "chula-vista",
+    city: "Chula Vista",
+    county: "San Diego County",
+    phone: "424-424-1579",
+    shortDescription: "Expert air duct and chimney services in Chula Vista.",
+    fullDescription: "Chula Vista's diverse communities from established neighborhoods to newer developments all benefit from our professional HVAC and chimney services. We provide thorough cleaning and expert repairs throughout the South Bay.",
+    serviceHighlights: ["South Bay specialists", "Bilingual service", "New and older homes"],
+    nearbyAreas: ["National City", "Eastlake", "Bonita", "Spring Valley", "San Diego"],
+    lat: 32.6401,
+    lng: -117.0842
+  },
+  {
+    slug: "oceanside",
+    city: "Oceanside",
+    county: "San Diego County",
+    phone: "424-424-1579",
+    shortDescription: "Coastal air duct and chimney services in Oceanside.",
+    fullDescription: "Oceanside's beach proximity means homes need extra attention to combat salt air and moisture. Our experienced team provides specialized services to protect your HVAC system and ensure safe fireplace operation.",
+    serviceHighlights: ["Coastal property experts", "Camp Pendleton area", "Fast response times"],
+    nearbyAreas: ["Carlsbad", "Vista", "San Marcos", "Camp Pendleton", "Fallbrook"],
+    lat: 33.1959,
+    lng: -117.3795
+  },
+  {
+    slug: "escondido",
+    city: "Escondido",
+    county: "San Diego County",
+    phone: "424-424-1579",
+    shortDescription: "Trusted air duct and chimney services in Escondido.",
+    fullDescription: "Escondido's inland location and warm climate require HVAC systems that work efficiently. We provide comprehensive duct cleaning and chimney services to keep your home comfortable through the hot summers.",
+    serviceHighlights: ["Inland San Diego experts", "Heat system specialists", "Same-day service"],
+    nearbyAreas: ["San Marcos", "Valley Center", "Rancho Bernardo", "Poway", "Vista"],
+    lat: 33.1192,
+    lng: -117.0864
+  },
+  // Bay Area - San Francisco
+  {
+    slug: "san-francisco",
+    city: "San Francisco",
+    county: "San Francisco County",
+    phone: "424-424-1579",
+    shortDescription: "Professional air duct and chimney services in San Francisco.",
+    fullDescription: "San Francisco's historic Victorian homes and modern condos alike need expert HVAC care. Our team specializes in the unique challenges of SF properties, from steep hills affecting chimney draft to foggy conditions impacting air quality.",
+    serviceHighlights: ["Victorian home specialists", "All SF neighborhoods", "Historic property care"],
+    nearbyAreas: ["Daly City", "South San Francisco", "Brisbane", "Colma", "Pacifica"],
+    lat: 37.7749,
+    lng: -122.4194
+  },
+  {
+    slug: "oakland",
+    city: "Oakland",
+    county: "Alameda County",
+    phone: "424-424-1579",
+    shortDescription: "Expert air duct and chimney services in Oakland.",
+    fullDescription: "Oakland's diverse architecture from Craftsman bungalows to modern high-rises requires specialized HVAC knowledge. We serve all Oakland neighborhoods with professional duct cleaning and chimney services.",
+    serviceHighlights: ["East Bay specialists", "All property types", "Emergency service available"],
+    nearbyAreas: ["Berkeley", "Alameda", "Emeryville", "Piedmont", "San Leandro"],
+    lat: 37.8044,
+    lng: -122.2712
+  },
+  {
+    slug: "fremont",
+    city: "Fremont",
+    county: "Alameda County",
+    phone: "424-424-1579",
+    shortDescription: "Reliable air duct and chimney services in Fremont.",
+    fullDescription: "Fremont families trust us for professional air duct cleaning and chimney maintenance. We serve the diverse communities of Fremont with quality workmanship and honest service.",
+    serviceHighlights: ["South Bay specialists", "Tech corridor service", "Family-focused"],
+    nearbyAreas: ["Newark", "Union City", "Milpitas", "Hayward", "San Jose"],
+    lat: 37.5485,
+    lng: -121.9886
+  },
+  // Bay Area - San Jose
+  {
+    slug: "san-jose",
+    city: "San Jose",
+    county: "Santa Clara County",
+    phone: "424-424-1579",
+    shortDescription: "Professional air duct and chimney services in San Jose.",
+    fullDescription: "As the heart of Silicon Valley, San Jose homes range from historic properties to modern smart homes. Our team provides expert HVAC and chimney services for all property types throughout the South Bay's largest city.",
+    serviceHighlights: ["Silicon Valley specialists", "Smart home compatible", "All neighborhoods served"],
+    nearbyAreas: ["Santa Clara", "Sunnyvale", "Campbell", "Milpitas", "Cupertino"],
+    lat: 37.3382,
+    lng: -121.8863
+  },
+  {
+    slug: "sunnyvale",
+    city: "Sunnyvale",
+    county: "Santa Clara County",
+    phone: "424-424-1579",
+    shortDescription: "Expert duct and chimney services for Sunnyvale homes.",
+    fullDescription: "Sunnyvale's tech-savvy residents expect quality service. We provide professional air duct cleaning and chimney maintenance with attention to detail and modern scheduling convenience.",
+    serviceHighlights: ["Tech-forward service", "Online booking", "Same-day available"],
+    nearbyAreas: ["Mountain View", "Santa Clara", "Cupertino", "Los Altos", "San Jose"],
+    lat: 37.3688,
+    lng: -122.0363
+  },
+  {
+    slug: "santa-clara",
+    city: "Santa Clara",
+    county: "Santa Clara County",
+    phone: "424-424-1579",
+    shortDescription: "Trusted air duct and chimney services in Santa Clara.",
+    fullDescription: "Santa Clara homeowners and businesses rely on us for clean air ducts and safe chimneys. We provide comprehensive services for the diverse properties in the Mission City.",
+    serviceHighlights: ["Residential and commercial", "Tech campus experience", "Flexible scheduling"],
+    nearbyAreas: ["San Jose", "Sunnyvale", "Milpitas", "Cupertino", "Campbell"],
+    lat: 37.3541,
+    lng: -121.9552
+  },
+  // Sacramento Area
+  {
+    slug: "sacramento",
+    city: "Sacramento",
+    county: "Sacramento County",
+    phone: "424-424-1579",
+    shortDescription: "Professional air duct and chimney services in Sacramento.",
+    fullDescription: "Sacramento's hot summers and mild winters create specific HVAC needs. Our team provides expert air duct cleaning and chimney services throughout the capital city, from Land Park to Natomas.",
+    serviceHighlights: ["Capital region experts", "Heat system specialists", "All Sacramento areas"],
+    nearbyAreas: ["Elk Grove", "Roseville", "Folsom", "Rancho Cordova", "West Sacramento"],
+    lat: 38.5816,
+    lng: -121.4944
+  },
+  {
+    slug: "elk-grove",
+    city: "Elk Grove",
+    county: "Sacramento County",
+    phone: "424-424-1579",
+    shortDescription: "Reliable air duct and chimney services in Elk Grove.",
+    fullDescription: "Elk Grove's growing community of families deserves the best in home comfort and safety. We provide thorough duct cleaning and chimney services for homes throughout Elk Grove.",
+    serviceHighlights: ["Family community focus", "Newer home expertise", "Same-day service"],
+    nearbyAreas: ["Sacramento", "Laguna", "Rancho Cordova", "Galt", "Vineyard"],
+    lat: 38.4088,
+    lng: -121.3716
+  },
+  {
+    slug: "roseville",
+    city: "Roseville",
+    county: "Placer County",
+    phone: "424-424-1579",
+    shortDescription: "Expert air duct and chimney services in Roseville.",
+    fullDescription: "Roseville's planned communities and newer developments benefit from our professional HVAC and chimney services. We help maintain optimal air quality and fireplace safety for Roseville families.",
+    serviceHighlights: ["Placer County specialists", "New development experts", "Quality workmanship"],
+    nearbyAreas: ["Rocklin", "Lincoln", "Granite Bay", "Citrus Heights", "Sacramento"],
+    lat: 38.7521,
+    lng: -121.2880
+  },
+  {
+    slug: "folsom",
+    city: "Folsom",
+    county: "Sacramento County",
+    phone: "424-424-1579",
+    shortDescription: "Trusted air duct and chimney services in Folsom.",
+    fullDescription: "Folsom residents appreciate our attention to detail and commitment to quality. From historic Old Folsom to newer communities, we provide expert duct and chimney services throughout the city.",
+    serviceHighlights: ["Lake area specialists", "Historic and new homes", "Honest assessments"],
+    nearbyAreas: ["El Dorado Hills", "Rancho Cordova", "Orangevale", "Fair Oaks", "Sacramento"],
+    lat: 38.6780,
+    lng: -121.1761
   }
 ];
 
@@ -228,5 +489,11 @@ export const counties = [
   "Los Angeles County",
   "Orange County",
   "Riverside County",
-  "San Bernardino County"
+  "San Bernardino County",
+  "San Diego County",
+  "San Francisco County",
+  "Alameda County",
+  "Santa Clara County",
+  "Sacramento County",
+  "Placer County"
 ];

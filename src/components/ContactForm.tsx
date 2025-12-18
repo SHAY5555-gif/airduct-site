@@ -30,7 +30,8 @@ export default function ContactForm() {
     county: "",
     service: "",
     message: "",
-    contactPreference: "call"
+    contactPreference: "call",
+    interestedInFinancing: false
   });
   const [submitted, setSubmitted] = useState(false);
 
@@ -206,6 +207,21 @@ export default function ContactForm() {
                     <span className="text-gray-700">I prefer a text</span>
                   </label>
                 </div>
+              </div>
+
+              <div className="md:col-span-2">
+                <label className="flex items-center gap-3 cursor-pointer bg-green-50 p-4 rounded-lg border border-green-200 hover:bg-green-100 transition-colors">
+                  <input
+                    type="checkbox"
+                    checked={formData.interestedInFinancing}
+                    onChange={(e) => setFormData({ ...formData, interestedInFinancing: e.target.checked })}
+                    className="w-5 h-5 text-green-600 rounded border-gray-300 focus:ring-green-500"
+                  />
+                  <div>
+                    <span className="text-gray-900 font-medium">I'm interested in financing options</span>
+                    <p className="text-sm text-gray-600 mt-0.5">We offer flexible payment plans for qualifying projects</p>
+                  </div>
+                </label>
               </div>
             </div>
 

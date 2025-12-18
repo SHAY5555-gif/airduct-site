@@ -1,6 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { Metadata } from "next";
+import PageHero from "@/components/PageHero";
+import GoBackButton from "@/components/GoBackButton";
+import FinancingSection from "@/components/FinancingSection";
+import SecondOpinionCTA from "@/components/SecondOpinionCTA";
 
 const PHONE = "424-424-1579";
 
@@ -12,30 +15,15 @@ export const metadata: Metadata = {
 export default function DryerVentCleaningPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-blue-900 to-blue-800 text-white pt-20 pb-16">
-        <div className="container-custom">
-          <div className="max-w-3xl">
-            <Link href="/#services" className="text-blue-300 hover:text-white mb-6 inline-flex items-center gap-2">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              Back to Services
-            </Link>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Dryer Vent Cleaning Services
-            </h1>
-            <p className="text-xl text-blue-100 mb-6">
-              Prevent dryer fires and improve efficiency with professional dryer vent cleaning.
-            </p>
-            <a href={`tel:${PHONE}`} className="btn-secondary inline-block text-lg py-4 px-8">
-              Call {PHONE} for Free Estimate
-            </a>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title="Dryer Vent Cleaning Services"
+        subtitle="Prevent dryer fires and improve efficiency with professional dryer vent cleaning."
+      />
 
       <section className="section-padding">
         <div className="container-custom">
+          <GoBackButton />
+
           <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-xl mb-12">
             <div className="flex items-start gap-4">
               <svg className="w-8 h-8 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -134,6 +122,10 @@ export default function DryerVentCleaningPage() {
           </div>
         </div>
       </section>
+
+      <FinancingSection />
+
+      <SecondOpinionCTA />
 
       <section className="py-16 md:py-20 bg-blue-900 text-white">
         <div className="container-custom text-center">
