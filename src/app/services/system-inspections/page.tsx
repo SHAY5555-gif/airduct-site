@@ -8,6 +8,8 @@ import ServiceAreaLinks from "@/components/ServiceAreaLinks";
 import ServiceFAQ, { ServiceFAQSchema } from "@/components/ServiceFAQ";
 import { systemInspectionsFaqs } from "@/data/serviceFaqs";
 import { BreadcrumbSchema, ServiceSchema } from "@/components/JsonLd";
+import WhenToCallPro from "@/components/WhenToCallPro";
+import { systemInspectionsProData } from "@/data/whenToCallProData";
 
 const PHONE = "424-424-1579";
 
@@ -115,6 +117,8 @@ export default function SystemInspectionsPage() {
       </section>
 
       <FinancingSection />
+
+      <WhenToCallPro data={systemInspectionsProData} phone={PHONE} />
 
       <ServiceAreaLinks serviceName="System Inspections" />
 

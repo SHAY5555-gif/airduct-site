@@ -8,6 +8,8 @@ import ServiceAreaLinks from "@/components/ServiceAreaLinks";
 import ServiceFAQ, { ServiceFAQSchema } from "@/components/ServiceFAQ";
 import { chimneyCleaningFaqs } from "@/data/serviceFaqs";
 import { BreadcrumbSchema, ServiceSchema } from "@/components/JsonLd";
+import WhenToCallPro from "@/components/WhenToCallPro";
+import { chimneyCleaningProData } from "@/data/whenToCallProData";
 
 const PHONE = "424-424-1579";
 
@@ -153,6 +155,8 @@ export default function ChimneyCleaningPage() {
       </section>
 
       <FinancingSection />
+
+      <WhenToCallPro data={chimneyCleaningProData} phone={PHONE} />
 
       <ServiceAreaLinks serviceName="Chimney Cleaning" />
 

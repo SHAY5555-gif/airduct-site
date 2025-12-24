@@ -8,6 +8,8 @@ import ServiceAreaLinks from "@/components/ServiceAreaLinks";
 import ServiceFAQ, { ServiceFAQSchema } from "@/components/ServiceFAQ";
 import { airDuctCleaningFaqs } from "@/data/serviceFaqs";
 import { BreadcrumbSchema, ServiceSchema } from "@/components/JsonLd";
+import WhenToCallPro from "@/components/WhenToCallPro";
+import { airDuctCleaningProData } from "@/data/whenToCallProData";
 
 const PHONE = "424-424-1579";
 
@@ -149,6 +151,8 @@ export default function AirDuctCleaningPage() {
       </section>
 
       <FinancingSection />
+
+      <WhenToCallPro data={airDuctCleaningProData} phone={PHONE} />
 
       <ServiceAreaLinks serviceName="Air Duct Cleaning" />
 

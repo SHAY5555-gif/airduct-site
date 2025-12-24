@@ -8,6 +8,8 @@ import ServiceAreaLinks from "@/components/ServiceAreaLinks";
 import ServiceFAQ, { ServiceFAQSchema } from "@/components/ServiceFAQ";
 import { dryerVentCleaningFaqs } from "@/data/serviceFaqs";
 import { BreadcrumbSchema, ServiceSchema } from "@/components/JsonLd";
+import WhenToCallPro from "@/components/WhenToCallPro";
+import { dryerVentCleaningProData } from "@/data/whenToCallProData";
 
 const PHONE = "424-424-1579";
 
@@ -152,6 +154,8 @@ export default function DryerVentCleaningPage() {
       </section>
 
       <FinancingSection />
+
+      <WhenToCallPro data={dryerVentCleaningProData} phone={PHONE} />
 
       <ServiceAreaLinks serviceName="Dryer Vent Cleaning" />
 

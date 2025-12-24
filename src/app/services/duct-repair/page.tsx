@@ -8,6 +8,8 @@ import ServiceAreaLinks from "@/components/ServiceAreaLinks";
 import ServiceFAQ, { ServiceFAQSchema } from "@/components/ServiceFAQ";
 import { ductRepairFaqs } from "@/data/serviceFaqs";
 import { BreadcrumbSchema, ServiceSchema } from "@/components/JsonLd";
+import WhenToCallPro from "@/components/WhenToCallPro";
+import { ductRepairProData } from "@/data/whenToCallProData";
 
 const PHONE = "424-424-1579";
 
@@ -114,6 +116,8 @@ export default function DuctRepairPage() {
       </section>
 
       <FinancingSection />
+
+      <WhenToCallPro data={ductRepairProData} phone={PHONE} />
 
       <ServiceAreaLinks serviceName="Duct Repair" />
 
