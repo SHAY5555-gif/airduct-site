@@ -4,13 +4,16 @@ import PageHero from "@/components/PageHero";
 import GoBackButton from "@/components/GoBackButton";
 import FinancingSection from "@/components/FinancingSection";
 import SecondOpinionCTA from "@/components/SecondOpinionCTA";
-import { BreadcrumbSchema } from "@/components/JsonLd";
+import { BreadcrumbSchema, ServiceSchema } from "@/components/JsonLd";
 
 const PHONE = "424-424-1579";
 
 export const metadata: Metadata = {
   title: "Chimney Installation Services | West Coast Air Duct and Chimney Services",
   description: "Professional chimney installation in Southern California. New chimney construction, liner installation, and code-compliant work. Call 424-424-1579.",
+  alternates: {
+    canonical: "/services/chimney-installation",
+  },
 };
 
 export default function ChimneyInstallationPage() {
@@ -20,6 +23,13 @@ export default function ChimneyInstallationPage() {
         { name: "Services", url: "/#services" },
         { name: "Chimney Installation", url: "/services/chimney-installation" }
       ]} />
+      <ServiceSchema
+        serviceName="Chimney Installation"
+        serviceType="Chimney Installation Service"
+        description="Professional chimney installation in Southern California. New chimney construction, liner installation, chimney caps, and code-compliant prefabricated chimney systems."
+        url="/services/chimney-installation"
+        image="/images/cozy-fireplace.png"
+      />
       <PageHero
         title="Chimney Installation Services"
         subtitle="Professional installation of new chimneys, liners, and related components."

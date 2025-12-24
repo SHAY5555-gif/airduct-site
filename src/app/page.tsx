@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import ServicesGrid from "@/components/ServicesGrid";
 import DetailedServices from "@/components/DetailedServices";
@@ -10,6 +11,12 @@ import Reviews from "@/components/Reviews";
 import FAQ from "@/components/FAQ";
 import ContactForm from "@/components/ContactForm";
 import { LocalBusinessSchema, FAQSchema } from "@/components/JsonLd";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function Home() {
   return (

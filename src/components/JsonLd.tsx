@@ -1,3 +1,77 @@
+const SITE_URL = "https://westcoastairductandchimney.com";
+
+export function OrganizationSchema() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "@id": `${SITE_URL}/#organization`,
+    "name": "West Coast Air Duct and Chimney Services",
+    "url": SITE_URL,
+    "telephone": "424-424-1579",
+    "description": "Professional air duct cleaning, duct repair, dryer vent cleaning, and chimney services across Southern California. Same-day appointments and 24/7 emergency service available.",
+    "foundingDate": "2015",
+    "priceRange": "$$",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
+    "areaServed": [
+      {
+        "@type": "County",
+        "name": "Los Angeles County",
+        "containedInPlace": { "@type": "State", "name": "California" }
+      },
+      {
+        "@type": "County",
+        "name": "Orange County",
+        "containedInPlace": { "@type": "State", "name": "California" }
+      },
+      {
+        "@type": "County",
+        "name": "Riverside County",
+        "containedInPlace": { "@type": "State", "name": "California" }
+      },
+      {
+        "@type": "County",
+        "name": "San Bernardino County",
+        "containedInPlace": { "@type": "State", "name": "California" }
+      }
+    ],
+    "knowsAbout": [
+      "Air duct cleaning",
+      "HVAC duct repair",
+      "Dryer vent cleaning",
+      "Chimney cleaning",
+      "Chimney repair",
+      "Chimney installation",
+      "HVAC system inspections"
+    ],
+    "slogan": "Air Duct & Chimney Services You Can Trust",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Air Duct & Chimney Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Air Duct Cleaning" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Duct Repair" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dryer Vent Cleaning" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "HVAC System Inspections" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Chimney Installation" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Chimney Repair" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Chimney Cleaning" } }
+      ]
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
 export function LocalBusinessSchema() {
   const schema = {
     "@context": "https://schema.org",
@@ -111,8 +185,6 @@ export function LocalBusinessSchema() {
   );
 }
 
-const SITE_URL = "https://westcoastairductandchimney.com";
-
 interface BreadcrumbItem {
   name: string;
   url: string;
@@ -136,6 +208,75 @@ export function BreadcrumbSchema({ items }: { items: BreadcrumbItem[] }) {
         "item": `${SITE_URL}${item.url}`
       }))
     ]
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+const BUSINESS_INFO = {
+  "@type": "HomeAndConstructionBusiness",
+  "@id": `${SITE_URL}/#organization`,
+  "name": "West Coast Air Duct and Chimney Services",
+  "telephone": "424-424-1579",
+  "url": SITE_URL
+};
+
+const AREA_SERVED = [
+  {
+    "@type": "County",
+    "name": "Los Angeles County",
+    "containedInPlace": { "@type": "State", "name": "California" }
+  },
+  {
+    "@type": "County",
+    "name": "Orange County",
+    "containedInPlace": { "@type": "State", "name": "California" }
+  },
+  {
+    "@type": "County",
+    "name": "Riverside County",
+    "containedInPlace": { "@type": "State", "name": "California" }
+  },
+  {
+    "@type": "County",
+    "name": "San Bernardino County",
+    "containedInPlace": { "@type": "State", "name": "California" }
+  }
+];
+
+interface ServiceSchemaProps {
+  serviceName: string;
+  serviceType: string;
+  description: string;
+  url: string;
+  image?: string;
+}
+
+export function ServiceSchema({ serviceName, serviceType, description, url, image }: ServiceSchemaProps) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${SITE_URL}${url}#service`,
+    "name": serviceName,
+    "serviceType": serviceType,
+    "description": description,
+    "url": `${SITE_URL}${url}`,
+    "provider": BUSINESS_INFO,
+    "areaServed": AREA_SERVED,
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceUrl": `${SITE_URL}${url}`,
+      "servicePhone": "424-424-1579",
+      "availableLanguage": ["English", "Spanish"]
+    },
+    ...(image && {
+      "image": `${SITE_URL}${image}`
+    })
   };
 
   return (

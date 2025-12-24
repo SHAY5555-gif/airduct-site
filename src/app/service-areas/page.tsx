@@ -9,6 +9,9 @@ const BRAND_NAME = "West Coast Air Duct and Chimney Services";
 export const metadata: Metadata = {
   title: `Service Areas | ${BRAND_NAME}`,
   description: "Professional air duct and chimney services across California and Florida. Same-day appointments and 24/7 emergency service available.",
+  alternates: {
+    canonical: "/service-areas",
+  },
 };
 
 export default function ServiceAreasPage() {

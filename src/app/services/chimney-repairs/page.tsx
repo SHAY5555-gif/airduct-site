@@ -4,13 +4,16 @@ import PageHero from "@/components/PageHero";
 import GoBackButton from "@/components/GoBackButton";
 import FinancingSection from "@/components/FinancingSection";
 import SecondOpinionCTA from "@/components/SecondOpinionCTA";
-import { BreadcrumbSchema } from "@/components/JsonLd";
+import { BreadcrumbSchema, ServiceSchema } from "@/components/JsonLd";
 
 const PHONE = "424-424-1579";
 
 export const metadata: Metadata = {
   title: "Chimney Repair Services | West Coast Air Duct and Chimney Services",
   description: "Professional chimney repair in Southern California. Fix cracks, leaks, damaged liners, and masonry issues. Call 424-424-1579 for expert repairs.",
+  alternates: {
+    canonical: "/services/chimney-repairs",
+  },
 };
 
 export default function ChimneyRepairsPage() {
@@ -20,6 +23,13 @@ export default function ChimneyRepairsPage() {
         { name: "Services", url: "/#services" },
         { name: "Chimney Repairs", url: "/services/chimney-repairs" }
       ]} />
+      <ServiceSchema
+        serviceName="Chimney Repair"
+        serviceType="Chimney Repair Service"
+        description="Professional chimney repair in Southern California. Fix cracks, damaged liners, caps, crowns, masonry issues, flashing, and dampers to restore safe chimney operation."
+        url="/services/chimney-repairs"
+        image="/images/chimney-exterior-repair.png"
+      />
       <PageHero
         title="Chimney Repair Services"
         subtitle="Expert repairs for cracks, damaged liners, caps, and masonry issues."

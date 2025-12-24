@@ -8,6 +8,9 @@ const BRAND_NAME = "West Coast Air Duct and Chimney Services";
 export const metadata: Metadata = {
   title: `Clean Air & Safety Membership | ${BRAND_NAME}`,
   description: "Join our membership program for priority scheduling, exclusive discounts, annual inspections, and peace of mind. Call 424-424-1579 to learn more.",
+  alternates: {
+    canonical: "/membership",
+  },
 };
 
 const benefits = [

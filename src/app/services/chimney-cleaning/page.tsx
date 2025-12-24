@@ -4,13 +4,16 @@ import PageHero from "@/components/PageHero";
 import GoBackButton from "@/components/GoBackButton";
 import FinancingSection from "@/components/FinancingSection";
 import SecondOpinionCTA from "@/components/SecondOpinionCTA";
-import { BreadcrumbSchema } from "@/components/JsonLd";
+import { BreadcrumbSchema, ServiceSchema } from "@/components/JsonLd";
 
 const PHONE = "424-424-1579";
 
 export const metadata: Metadata = {
   title: "Chimney Cleaning Services | West Coast Air Duct and Chimney Services",
   description: "Professional chimney cleaning in Southern California. Remove creosote, debris, and blockages for safe fireplace operation. Call 424-424-1579.",
+  alternates: {
+    canonical: "/services/chimney-cleaning",
+  },
 };
 
 export default function ChimneyCleaningPage() {
@@ -20,6 +23,13 @@ export default function ChimneyCleaningPage() {
         { name: "Services", url: "/#services" },
         { name: "Chimney Cleaning", url: "/services/chimney-cleaning" }
       ]} />
+      <ServiceSchema
+        serviceName="Chimney Cleaning"
+        serviceType="Chimney Sweep Service"
+        description="Professional chimney cleaning in Southern California. Remove dangerous creosote buildup, soot, and debris for safe, efficient fireplace operation and fire prevention."
+        url="/services/chimney-cleaning"
+        image="/images/chimney-flue-cleaning.png"
+      />
       <PageHero
         title="Chimney Cleaning Services"
         subtitle="Remove dangerous creosote buildup and debris for safe, efficient fireplace operation."

@@ -39,6 +39,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `Air Duct & Chimney Services in ${city.city} | ${BRAND_NAME}`,
     description: `Professional air duct cleaning, chimney services, and dryer vent cleaning in ${city.city}, ${city.county}. Same-day appointments available. Call ${city.phone}.`,
+    alternates: {
+      canonical: `/service-areas/${slug}`,
+    },
   };
 }
 

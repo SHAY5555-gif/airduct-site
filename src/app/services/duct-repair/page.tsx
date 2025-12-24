@@ -4,13 +4,16 @@ import PageHero from "@/components/PageHero";
 import GoBackButton from "@/components/GoBackButton";
 import FinancingSection from "@/components/FinancingSection";
 import SecondOpinionCTA from "@/components/SecondOpinionCTA";
-import { BreadcrumbSchema } from "@/components/JsonLd";
+import { BreadcrumbSchema, ServiceSchema } from "@/components/JsonLd";
 
 const PHONE = "424-424-1579";
 
 export const metadata: Metadata = {
   title: "Duct Repair Services | West Coast Air Duct and Chimney Services",
   description: "Professional duct repair services in Southern California. Fix leaks, damaged sections, and airflow problems. Same-day service available. Call 424-424-1579.",
+  alternates: {
+    canonical: "/services/duct-repair",
+  },
 };
 
 export default function DuctRepairPage() {
@@ -20,6 +23,13 @@ export default function DuctRepairPage() {
         { name: "Services", url: "/#services" },
         { name: "Duct Repair", url: "/services/duct-repair" }
       ]} />
+      <ServiceSchema
+        serviceName="Duct Repair"
+        serviceType="HVAC Duct Repair Service"
+        description="Professional duct repair services in Southern California. Fix leaks, damaged sections, crushed ducts, and airflow problems to restore your HVAC system's efficiency."
+        url="/services/duct-repair"
+        image="/images/duct-before-after.png"
+      />
       <PageHero
         title="Duct Repair Services in Southern California"
         subtitle="Fix leaks, damaged ductwork, and airflow issues to restore your HVAC system's efficiency."

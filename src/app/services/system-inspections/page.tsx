@@ -4,13 +4,16 @@ import PageHero from "@/components/PageHero";
 import GoBackButton from "@/components/GoBackButton";
 import FinancingSection from "@/components/FinancingSection";
 import SecondOpinionCTA from "@/components/SecondOpinionCTA";
-import { BreadcrumbSchema } from "@/components/JsonLd";
+import { BreadcrumbSchema, ServiceSchema } from "@/components/JsonLd";
 
 const PHONE = "424-424-1579";
 
 export const metadata: Metadata = {
   title: "HVAC & Duct System Inspections | West Coast Air Duct and Chimney Services",
   description: "Comprehensive HVAC and duct system inspections in Southern California. Identify issues before they become costly problems. Call 424-424-1579.",
+  alternates: {
+    canonical: "/services/system-inspections",
+  },
 };
 
 export default function SystemInspectionsPage() {
@@ -20,6 +23,13 @@ export default function SystemInspectionsPage() {
         { name: "Services", url: "/#services" },
         { name: "System Inspections", url: "/services/system-inspections" }
       ]} />
+      <ServiceSchema
+        serviceName="HVAC System Inspections"
+        serviceType="HVAC Inspection Service"
+        description="Comprehensive HVAC and duct system inspections in Southern California. Identify leaks, damage, and inefficiencies before they become costly problems."
+        url="/services/system-inspections"
+        image="/images/hvac-inspection.png"
+      />
       <PageHero
         title="HVAC & Duct System Inspections"
         subtitle="Comprehensive inspections to identify problems before they become expensive repairs."

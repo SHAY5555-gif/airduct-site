@@ -8,6 +8,9 @@ const BRAND_NAME = "West Coast Air Duct and Chimney Services";
 export const metadata: Metadata = {
   title: `Professional Inspections | ${BRAND_NAME}`,
   description: "Comprehensive air duct and chimney inspections for home buyers, insurance claims, and annual maintenance. Starting at $179. Call 424-424-1579.",
+  alternates: {
+    canonical: "/inspections",
+  },
 };
 
 const inspectionTypes = [

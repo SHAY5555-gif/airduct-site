@@ -4,13 +4,16 @@ import PageHero from "@/components/PageHero";
 import GoBackButton from "@/components/GoBackButton";
 import FinancingSection from "@/components/FinancingSection";
 import SecondOpinionCTA from "@/components/SecondOpinionCTA";
-import { BreadcrumbSchema } from "@/components/JsonLd";
+import { BreadcrumbSchema, ServiceSchema } from "@/components/JsonLd";
 
 const PHONE = "424-424-1579";
 
 export const metadata: Metadata = {
   title: "Dryer Vent Cleaning | West Coast Air Duct and Chimney Services",
   description: "Professional dryer vent cleaning in Southern California. Prevent fires, reduce drying time, and save energy. Same-day service. Call 424-424-1579.",
+  alternates: {
+    canonical: "/services/dryer-vent-cleaning",
+  },
 };
 
 export default function DryerVentCleaningPage() {
@@ -20,6 +23,13 @@ export default function DryerVentCleaningPage() {
         { name: "Services", url: "/#services" },
         { name: "Dryer Vent Cleaning", url: "/services/dryer-vent-cleaning" }
       ]} />
+      <ServiceSchema
+        serviceName="Dryer Vent Cleaning"
+        serviceType="Dryer Vent Cleaning Service"
+        description="Professional dryer vent cleaning in Southern California. Prevent dryer fires, reduce drying time, and improve energy efficiency by removing lint buildup from your dryer vent."
+        url="/services/dryer-vent-cleaning"
+        image="/images/dryer-vent-before-after.png"
+      />
       <PageHero
         title="Dryer Vent Cleaning Services"
         subtitle="Prevent dryer fires and improve efficiency with professional dryer vent cleaning."

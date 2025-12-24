@@ -8,6 +8,9 @@ const BRAND_NAME = "West Coast Air Duct and Chimney Services";
 export const metadata: Metadata = {
   title: `Resources & Education | ${BRAND_NAME}`,
   description: "Learn about air duct cleaning, chimney safety, and indoor air quality from trusted industry resources. Educational guides and links to authoritative organizations.",
+  alternates: {
+    canonical: "/resources",
+  },
 };
 
 const industryOrganizations = [

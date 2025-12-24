@@ -4,13 +4,16 @@ import PageHero from "@/components/PageHero";
 import GoBackButton from "@/components/GoBackButton";
 import FinancingSection from "@/components/FinancingSection";
 import SecondOpinionCTA from "@/components/SecondOpinionCTA";
-import { BreadcrumbSchema } from "@/components/JsonLd";
+import { BreadcrumbSchema, ServiceSchema } from "@/components/JsonLd";
 
 const PHONE = "424-424-1579";
 
 export const metadata: Metadata = {
   title: "Air Duct Cleaning Services | West Coast Air Duct and Chimney Services",
   description: "Professional air duct cleaning services in Southern California. Remove dust, allergens, and debris from your HVAC system. Same-day appointments available. Call 424-424-1579.",
+  alternates: {
+    canonical: "/services/air-duct-cleaning",
+  },
 };
 
 export default function AirDuctCleaningPage() {
@@ -20,6 +23,13 @@ export default function AirDuctCleaningPage() {
         { name: "Services", url: "/#services" },
         { name: "Air Duct Cleaning", url: "/services/air-duct-cleaning" }
       ]} />
+      <ServiceSchema
+        serviceName="Air Duct Cleaning"
+        serviceType="HVAC Duct Cleaning Service"
+        description="Professional air duct cleaning service in Southern California. Remove dust, allergens, mold, and debris from your HVAC ductwork for cleaner, healthier indoor air quality."
+        url="/services/air-duct-cleaning"
+        image="/images/duct-before-after.png"
+      />
       <PageHero
         title="Air Duct Cleaning in Los Angeles, Orange, Riverside & San Bernardino Counties"
         subtitle="Remove dust, allergens, mold, and debris from your HVAC system for cleaner, healthier indoor air."
