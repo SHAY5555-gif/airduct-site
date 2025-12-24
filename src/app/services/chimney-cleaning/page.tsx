@@ -5,6 +5,8 @@ import GoBackButton from "@/components/GoBackButton";
 import FinancingSection from "@/components/FinancingSection";
 import SecondOpinionCTA from "@/components/SecondOpinionCTA";
 import ServiceAreaLinks from "@/components/ServiceAreaLinks";
+import ServiceFAQ, { ServiceFAQSchema } from "@/components/ServiceFAQ";
+import { chimneyCleaningFaqs } from "@/data/serviceFaqs";
 import { BreadcrumbSchema, ServiceSchema } from "@/components/JsonLd";
 
 const PHONE = "424-424-1579";
@@ -24,6 +26,7 @@ export default function ChimneyCleaningPage() {
         { name: "Services", url: "/#services" },
         { name: "Chimney Cleaning", url: "/services/chimney-cleaning" }
       ]} />
+      <ServiceFAQSchema faqs={chimneyCleaningFaqs} />
       <ServiceSchema
         serviceName="Chimney Cleaning"
         serviceType="Chimney Sweep Service"
@@ -35,6 +38,15 @@ export default function ChimneyCleaningPage() {
         title="Chimney Cleaning Services"
         subtitle="Remove dangerous creosote buildup and debris for safe, efficient fireplace operation."
       />
+
+      {/* Answer Block for AI Overview optimization */}
+      <section className="py-8 bg-blue-50 border-b border-blue-100">
+        <div className="container-custom">
+          <p className="text-lg text-gray-700 max-w-4xl mx-auto text-center leading-relaxed">
+            <strong>Professional chimney cleaning in Southern California typically costs $150-$300</strong> and takes 45-90 minutes to complete. Creosote buildup is the leading cause of chimney fires, so annual cleaning is recommended for homes that use their fireplace regularly. Our certified technicians serve Los Angeles, Orange, Riverside, and San Bernardino Counties with same-day appointments available. <a href={`tel:${PHONE}`} className="text-blue-800 font-semibold hover:underline">Call {PHONE}</a> for a free estimate.
+          </p>
+        </div>
+      </section>
 
       <section className="section-padding">
         <div className="container-custom">
@@ -145,6 +157,8 @@ export default function ChimneyCleaningPage() {
       <ServiceAreaLinks serviceName="Chimney Cleaning" />
 
       <SecondOpinionCTA />
+
+      <ServiceFAQ faqs={chimneyCleaningFaqs} serviceName="Chimney Cleaning" />
 
       <section className="py-16 md:py-20 bg-blue-900 text-white">
         <div className="container-custom text-center">

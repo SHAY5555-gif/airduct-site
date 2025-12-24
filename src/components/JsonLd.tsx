@@ -340,42 +340,10 @@ export function FAQSchema() {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How often should I clean my air ducts?",
+        "name": "What areas do you service in Southern California?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We recommend cleaning your air ducts every 3-5 years. However, you may need more frequent cleaning if you have pets, allergies, recent home renovations, or notice excessive dust in your home."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I know if my dryer vent is clogged?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Signs of a clogged dryer vent include: clothes taking longer than one cycle to dry, the dryer feeling very hot to the touch, a burning smell when the dryer runs, excessive lint around the dryer, and the vent hood flap not opening properly."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you service all of Los Angeles County?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes! We provide services throughout Los Angeles County, including Los Angeles, Long Beach, Santa Monica, Pasadena, Glendale, Burbank, and all surrounding areas. We also serve Orange, Riverside, and San Bernardino Counties."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you offer chimney cleaning and inspection in one visit?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, we can perform both chimney cleaning and inspection in a single visit. In fact, we always inspect the chimney before cleaning to identify any issues that need attention."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How long does a typical air duct cleaning take?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A typical residential air duct cleaning takes 2-4 hours, depending on the size of your home and the condition of your ductwork. Larger homes or heavily contaminated systems may take longer."
+          "text": "We provide services throughout Los Angeles County, Orange County, Riverside County, and San Bernardino County. This includes Los Angeles, Long Beach, Santa Monica, Pasadena, Glendale, Burbank, Anaheim, Irvine, and all surrounding communities."
         }
       },
       {
@@ -383,7 +351,7 @@ export function FAQSchema() {
         "name": "Are your technicians licensed and insured?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, all our technicians are fully licensed and insured. We carry comprehensive liability insurance to protect you and your property during our service."
+          "text": "Yes, all our technicians are fully licensed and insured. We carry comprehensive liability insurance to protect you and your property during service. We've been serving Southern California since 2015 with a commitment to professional, quality work."
         }
       },
       {
@@ -391,7 +359,63 @@ export function FAQSchema() {
         "name": "Do you offer free estimates?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes! We provide free estimates for all our services. Call us at 424-424-1579 or fill out our online form, and we'll give you a clear, upfront quote with no hidden fees."
+          "text": "Yes! We provide free estimates for all our services. Call us at 424-424-1579 or fill out our online form, and we'll give you a clear, upfront quote with no hidden fees or surprise charges."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How often should I clean my air ducts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We recommend cleaning air ducts every 3-5 years for most homes. However, you may need more frequent cleaning if you have pets, allergies, smokers in the home, recent renovations, or notice excessive dust or musty odors."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I know if my dryer vent needs cleaning?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Warning signs include: clothes taking longer than one cycle to dry, the dryer feeling very hot, a burning smell when running, excessive lint around the dryer, and the vent hood flap not opening properly. We recommend annual dryer vent cleaning for fire prevention."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer same-day or emergency service?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we offer same-day appointments when available and 24/7 emergency service for urgent situations like chimney fires or safety concerns. Call 424-424-1579 to check availability."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is your workmanship guarantee?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We stand behind our work with a 30-day workmanship guarantee. If you're not satisfied with our service, we'll come back and make it right at no additional charge."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you provide before and after photos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we document every job with time-stamped before and after photos showing the condition of your ducts, vents, or chimney. This ensures transparency and lets you see exactly what we cleaned and the results achieved."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you work with both residential and commercial properties?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we serve both residential homes and commercial businesses across Southern California. Our team has experience with all types and sizes of HVAC systems and chimneys."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does air duct cleaning cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most single-system homes in Southern California pay $300-$700 for a complete HVAC duct cleaning, depending on home size, vent count, and duct condition. We provide detailed quotes upfront with no hidden fees. Call for a free estimate."
         }
       }
     ]

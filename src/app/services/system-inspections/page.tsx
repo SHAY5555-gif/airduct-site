@@ -5,6 +5,8 @@ import GoBackButton from "@/components/GoBackButton";
 import FinancingSection from "@/components/FinancingSection";
 import SecondOpinionCTA from "@/components/SecondOpinionCTA";
 import ServiceAreaLinks from "@/components/ServiceAreaLinks";
+import ServiceFAQ, { ServiceFAQSchema } from "@/components/ServiceFAQ";
+import { systemInspectionsFaqs } from "@/data/serviceFaqs";
 import { BreadcrumbSchema, ServiceSchema } from "@/components/JsonLd";
 
 const PHONE = "424-424-1579";
@@ -24,6 +26,7 @@ export default function SystemInspectionsPage() {
         { name: "Services", url: "/#services" },
         { name: "System Inspections", url: "/services/system-inspections" }
       ]} />
+      <ServiceFAQSchema faqs={systemInspectionsFaqs} />
       <ServiceSchema
         serviceName="HVAC System Inspections"
         serviceType="HVAC Inspection Service"
@@ -35,6 +38,15 @@ export default function SystemInspectionsPage() {
         title="HVAC & Duct System Inspections"
         subtitle="Comprehensive inspections to identify problems before they become expensive repairs."
       />
+
+      {/* Answer Block for AI Overview optimization */}
+      <section className="py-8 bg-blue-50 border-b border-blue-100">
+        <div className="container-custom">
+          <p className="text-lg text-gray-700 max-w-4xl mx-auto text-center leading-relaxed">
+            <strong>HVAC and duct system inspections in Southern California start at $179</strong> and take 1-2 hours to complete. Our thorough inspection checks for leaks, damage, and inefficiencies in your ductwork, plus provides a detailed report with photos and recommendations. Ideal for home buyers, annual maintenance, or when experiencing airflow or air quality issues. We serve Los Angeles, Orange, Riverside, and San Bernardino Counties. <a href={`tel:${PHONE}`} className="text-blue-800 font-semibold hover:underline">Call {PHONE}</a> to schedule.
+          </p>
+        </div>
+      </section>
 
       <section className="section-padding">
         <div className="container-custom">
@@ -107,6 +119,8 @@ export default function SystemInspectionsPage() {
       <ServiceAreaLinks serviceName="System Inspections" />
 
       <SecondOpinionCTA />
+
+      <ServiceFAQ faqs={systemInspectionsFaqs} serviceName="HVAC System Inspection" />
 
       <section className="py-16 md:py-20 bg-blue-900 text-white">
         <div className="container-custom text-center">

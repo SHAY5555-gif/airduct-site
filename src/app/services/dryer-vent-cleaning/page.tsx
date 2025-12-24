@@ -5,6 +5,8 @@ import GoBackButton from "@/components/GoBackButton";
 import FinancingSection from "@/components/FinancingSection";
 import SecondOpinionCTA from "@/components/SecondOpinionCTA";
 import ServiceAreaLinks from "@/components/ServiceAreaLinks";
+import ServiceFAQ, { ServiceFAQSchema } from "@/components/ServiceFAQ";
+import { dryerVentCleaningFaqs } from "@/data/serviceFaqs";
 import { BreadcrumbSchema, ServiceSchema } from "@/components/JsonLd";
 
 const PHONE = "424-424-1579";
@@ -24,6 +26,7 @@ export default function DryerVentCleaningPage() {
         { name: "Services", url: "/#services" },
         { name: "Dryer Vent Cleaning", url: "/services/dryer-vent-cleaning" }
       ]} />
+      <ServiceFAQSchema faqs={dryerVentCleaningFaqs} />
       <ServiceSchema
         serviceName="Dryer Vent Cleaning"
         serviceType="Dryer Vent Cleaning Service"
@@ -35,6 +38,15 @@ export default function DryerVentCleaningPage() {
         title="Dryer Vent Cleaning Services"
         subtitle="Prevent dryer fires and improve efficiency with professional dryer vent cleaning."
       />
+
+      {/* Answer Block for AI Overview optimization */}
+      <section className="py-8 bg-blue-50 border-b border-blue-100">
+        <div className="container-custom">
+          <p className="text-lg text-gray-700 max-w-4xl mx-auto text-center leading-relaxed">
+            <strong>Professional dryer vent cleaning costs $89-$179 in Southern California</strong> and takes about 30-60 minutes to complete. Clogged dryer vents cause approximately 2,900 house fires annually and make clothes take longer to dry. We recommend cleaning your dryer vent at least once per year. We serve Los Angeles, Orange, Riverside, and San Bernardino Counties with same-day appointments available. <a href={`tel:${PHONE}`} className="text-blue-800 font-semibold hover:underline">Call {PHONE}</a> for a free estimate.
+          </p>
+        </div>
+      </section>
 
       <section className="section-padding">
         <div className="container-custom">
@@ -144,6 +156,8 @@ export default function DryerVentCleaningPage() {
       <ServiceAreaLinks serviceName="Dryer Vent Cleaning" />
 
       <SecondOpinionCTA />
+
+      <ServiceFAQ faqs={dryerVentCleaningFaqs} serviceName="Dryer Vent Cleaning" />
 
       <section className="py-16 md:py-20 bg-blue-900 text-white">
         <div className="container-custom text-center">

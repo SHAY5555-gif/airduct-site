@@ -5,6 +5,8 @@ import GoBackButton from "@/components/GoBackButton";
 import FinancingSection from "@/components/FinancingSection";
 import SecondOpinionCTA from "@/components/SecondOpinionCTA";
 import ServiceAreaLinks from "@/components/ServiceAreaLinks";
+import ServiceFAQ, { ServiceFAQSchema } from "@/components/ServiceFAQ";
+import { chimneyRepairFaqs } from "@/data/serviceFaqs";
 import { BreadcrumbSchema, ServiceSchema } from "@/components/JsonLd";
 
 const PHONE = "424-424-1579";
@@ -24,6 +26,7 @@ export default function ChimneyRepairsPage() {
         { name: "Services", url: "/#services" },
         { name: "Chimney Repairs", url: "/services/chimney-repairs" }
       ]} />
+      <ServiceFAQSchema faqs={chimneyRepairFaqs} />
       <ServiceSchema
         serviceName="Chimney Repair"
         serviceType="Chimney Repair Service"
@@ -35,6 +38,15 @@ export default function ChimneyRepairsPage() {
         title="Chimney Repair Services"
         subtitle="Expert repairs for cracks, damaged liners, caps, and masonry issues."
       />
+
+      {/* Answer Block for AI Overview optimization */}
+      <section className="py-8 bg-blue-50 border-b border-blue-100">
+        <div className="container-custom">
+          <p className="text-lg text-gray-700 max-w-4xl mx-auto text-center leading-relaxed">
+            <strong>Chimney repairs in Southern California range from $150-$1,500+</strong> depending on the issue, with minor repairs like cap replacement taking 1-2 hours and major masonry work taking 1-2 days. Damaged chimneys can cause water leaks, structural problems, and carbon monoxide risks. Our experienced technicians serve Los Angeles, Orange, Riverside, and San Bernardino Counties. <a href={`tel:${PHONE}`} className="text-blue-800 font-semibold hover:underline">Call {PHONE}</a> for a free inspection and honest assessment.
+          </p>
+        </div>
+      </section>
 
       <section className="section-padding">
         <div className="container-custom">
@@ -118,6 +130,8 @@ export default function ChimneyRepairsPage() {
       <ServiceAreaLinks serviceName="Chimney Repair" />
 
       <SecondOpinionCTA />
+
+      <ServiceFAQ faqs={chimneyRepairFaqs} serviceName="Chimney Repair" />
 
       <section className="py-16 md:py-20 bg-blue-900 text-white">
         <div className="container-custom text-center">

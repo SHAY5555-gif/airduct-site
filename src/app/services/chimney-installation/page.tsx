@@ -5,6 +5,8 @@ import GoBackButton from "@/components/GoBackButton";
 import FinancingSection from "@/components/FinancingSection";
 import SecondOpinionCTA from "@/components/SecondOpinionCTA";
 import ServiceAreaLinks from "@/components/ServiceAreaLinks";
+import ServiceFAQ, { ServiceFAQSchema } from "@/components/ServiceFAQ";
+import { chimneyInstallationFaqs } from "@/data/serviceFaqs";
 import { BreadcrumbSchema, ServiceSchema } from "@/components/JsonLd";
 
 const PHONE = "424-424-1579";
@@ -24,6 +26,7 @@ export default function ChimneyInstallationPage() {
         { name: "Services", url: "/#services" },
         { name: "Chimney Installation", url: "/services/chimney-installation" }
       ]} />
+      <ServiceFAQSchema faqs={chimneyInstallationFaqs} />
       <ServiceSchema
         serviceName="Chimney Installation"
         serviceType="Chimney Installation Service"
@@ -35,6 +38,15 @@ export default function ChimneyInstallationPage() {
         title="Chimney Installation Services"
         subtitle="Professional installation of new chimneys, liners, and related components."
       />
+
+      {/* Answer Block for AI Overview optimization */}
+      <section className="py-8 bg-blue-50 border-b border-blue-100">
+        <div className="container-custom">
+          <p className="text-lg text-gray-700 max-w-4xl mx-auto text-center leading-relaxed">
+            <strong>Professional chimney installation in Southern California</strong> includes new chimney construction, liner installation, chimney caps, and prefabricated systems. All installations meet local building codes and safety standards. Whether you're adding a fireplace to your home or replacing an old chimney, our certified technicians ensure proper installation for safe, efficient operation. We serve Los Angeles, Orange, Riverside, and San Bernardino Counties. <a href={`tel:${PHONE}`} className="text-blue-800 font-semibold hover:underline">Call {PHONE}</a> for a free consultation.
+          </p>
+        </div>
+      </section>
 
       <section className="section-padding">
         <div className="container-custom">
@@ -120,6 +132,8 @@ export default function ChimneyInstallationPage() {
       <ServiceAreaLinks serviceName="Chimney Installation" />
 
       <SecondOpinionCTA />
+
+      <ServiceFAQ faqs={chimneyInstallationFaqs} serviceName="Chimney Installation" />
 
       <section className="py-16 md:py-20 bg-blue-900 text-white">
         <div className="container-custom text-center">

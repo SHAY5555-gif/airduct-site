@@ -5,6 +5,8 @@ import GoBackButton from "@/components/GoBackButton";
 import FinancingSection from "@/components/FinancingSection";
 import SecondOpinionCTA from "@/components/SecondOpinionCTA";
 import ServiceAreaLinks from "@/components/ServiceAreaLinks";
+import ServiceFAQ, { ServiceFAQSchema } from "@/components/ServiceFAQ";
+import { airDuctCleaningFaqs } from "@/data/serviceFaqs";
 import { BreadcrumbSchema, ServiceSchema } from "@/components/JsonLd";
 
 const PHONE = "424-424-1579";
@@ -24,6 +26,7 @@ export default function AirDuctCleaningPage() {
         { name: "Services", url: "/#services" },
         { name: "Air Duct Cleaning", url: "/services/air-duct-cleaning" }
       ]} />
+      <ServiceFAQSchema faqs={airDuctCleaningFaqs} />
       <ServiceSchema
         serviceName="Air Duct Cleaning"
         serviceType="HVAC Duct Cleaning Service"
@@ -35,6 +38,15 @@ export default function AirDuctCleaningPage() {
         title="Air Duct Cleaning in Los Angeles, Orange, Riverside & San Bernardino Counties"
         subtitle="Remove dust, allergens, mold, and debris from your HVAC system for cleaner, healthier indoor air."
       />
+
+      {/* Answer Block for AI Overview optimization */}
+      <section className="py-8 bg-blue-50 border-b border-blue-100">
+        <div className="container-custom">
+          <p className="text-lg text-gray-700 max-w-4xl mx-auto text-center leading-relaxed">
+            <strong>Professional air duct cleaning in Southern California typically costs $300-$700</strong> for most homes and takes 2-4 hours to complete. Our certified technicians remove dust, allergens, mold, and debris from your entire HVAC system, improving indoor air quality immediately. We serve Los Angeles, Orange, Riverside, and San Bernardino Counties with same-day appointments available. <a href={`tel:${PHONE}`} className="text-blue-800 font-semibold hover:underline">Call {PHONE}</a> for a free estimate.
+          </p>
+        </div>
+      </section>
 
       <section className="section-padding">
         <div className="container-custom">
@@ -141,6 +153,8 @@ export default function AirDuctCleaningPage() {
       <ServiceAreaLinks serviceName="Air Duct Cleaning" />
 
       <SecondOpinionCTA />
+
+      <ServiceFAQ faqs={airDuctCleaningFaqs} serviceName="Air Duct Cleaning" />
 
       <section className="py-16 md:py-20 bg-blue-900 text-white">
         <div className="container-custom text-center">

@@ -18,9 +18,16 @@ export default function robots(): MetadataRoute.Robots {
           "/*?*source=",
           "/*?*fbclid=",
           "/*?*gclid=",
+          "/*?*msclkid=",
+          // Block search and filter pages (duplicate content)
+          "/*?*sort=",
+          "/*?*filter=",
+          "/*?*page=",
+          "/*?*session=",
         ],
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }

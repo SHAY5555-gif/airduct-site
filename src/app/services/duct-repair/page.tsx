@@ -5,6 +5,8 @@ import GoBackButton from "@/components/GoBackButton";
 import FinancingSection from "@/components/FinancingSection";
 import SecondOpinionCTA from "@/components/SecondOpinionCTA";
 import ServiceAreaLinks from "@/components/ServiceAreaLinks";
+import ServiceFAQ, { ServiceFAQSchema } from "@/components/ServiceFAQ";
+import { ductRepairFaqs } from "@/data/serviceFaqs";
 import { BreadcrumbSchema, ServiceSchema } from "@/components/JsonLd";
 
 const PHONE = "424-424-1579";
@@ -24,6 +26,7 @@ export default function DuctRepairPage() {
         { name: "Services", url: "/#services" },
         { name: "Duct Repair", url: "/services/duct-repair" }
       ]} />
+      <ServiceFAQSchema faqs={ductRepairFaqs} />
       <ServiceSchema
         serviceName="Duct Repair"
         serviceType="HVAC Duct Repair Service"
@@ -35,6 +38,15 @@ export default function DuctRepairPage() {
         title="Duct Repair Services in Southern California"
         subtitle="Fix leaks, damaged ductwork, and airflow issues to restore your HVAC system's efficiency."
       />
+
+      {/* Answer Block for AI Overview optimization */}
+      <section className="py-8 bg-blue-50 border-b border-blue-100">
+        <div className="container-custom">
+          <p className="text-lg text-gray-700 max-w-4xl mx-auto text-center leading-relaxed">
+            <strong>Leaky or damaged ductwork can waste up to 30% of your conditioned air</strong>, leading to higher energy bills and uneven temperatures. Our professional duct repair service fixes leaks, disconnected sections, and crushed ducts, typically completing repairs in 2-4 hours. We serve Los Angeles, Orange, Riverside, and San Bernardino Counties with same-day service available. <a href={`tel:${PHONE}`} className="text-blue-800 font-semibold hover:underline">Call {PHONE}</a> for a free inspection.
+          </p>
+        </div>
+      </section>
 
       <section className="section-padding">
         <div className="container-custom">
@@ -106,6 +118,8 @@ export default function DuctRepairPage() {
       <ServiceAreaLinks serviceName="Duct Repair" />
 
       <SecondOpinionCTA />
+
+      <ServiceFAQ faqs={ductRepairFaqs} serviceName="Duct Repair" />
 
       <section className="py-16 md:py-20 bg-blue-900 text-white">
         <div className="container-custom text-center">
