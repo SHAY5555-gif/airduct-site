@@ -4,6 +4,7 @@ import PageHero from "@/components/PageHero";
 import GoBackButton from "@/components/GoBackButton";
 import FinancingSection from "@/components/FinancingSection";
 import SecondOpinionCTA from "@/components/SecondOpinionCTA";
+import { BreadcrumbSchema } from "@/components/JsonLd";
 
 const PHONE = "424-424-1579";
 
@@ -15,6 +16,10 @@ export const metadata: Metadata = {
 export default function SystemInspectionsPage() {
   return (
     <>
+      <BreadcrumbSchema items={[
+        { name: "Services", url: "/#services" },
+        { name: "System Inspections", url: "/services/system-inspections" }
+      ]} />
       <PageHero
         title="HVAC & Duct System Inspections"
         subtitle="Comprehensive inspections to identify problems before they become expensive repairs."

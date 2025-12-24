@@ -6,6 +6,7 @@ import PageHero from "@/components/PageHero";
 import GoBackButton from "@/components/GoBackButton";
 import FinancingSection from "@/components/FinancingSection";
 import SecondOpinionCTA from "@/components/SecondOpinionCTA";
+import { BreadcrumbSchema } from "@/components/JsonLd";
 
 const BRAND_NAME = "West Coast Air Duct and Chimney Services";
 
@@ -54,6 +55,10 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
 
   return (
     <>
+      <BreadcrumbSchema items={[
+        { name: "Service Areas", url: "/service-areas" },
+        { name: city.city, url: `/service-areas/${city.slug}` }
+      ]} />
       <PageHero
         title={`Air Duct & Chimney Services in ${city.city}`}
         subtitle={city.shortDescription}

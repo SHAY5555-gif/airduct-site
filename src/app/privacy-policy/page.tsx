@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BreadcrumbSchema } from "@/components/JsonLd";
 
 const PHONE = "424-424-1579";
 const BRAND_NAME = "West Coast Air Duct and Chimney Services";
@@ -12,6 +13,9 @@ export const metadata: Metadata = {
 export default function PrivacyPolicyPage() {
   return (
     <>
+      <BreadcrumbSchema items={[
+        { name: "Privacy Policy", url: "/privacy-policy" }
+      ]} />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-900 to-blue-800 text-white py-12">
         <div className="container-custom">

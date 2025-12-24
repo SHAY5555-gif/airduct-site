@@ -4,6 +4,7 @@ import PageHero from "@/components/PageHero";
 import GoBackButton from "@/components/GoBackButton";
 import FinancingSection from "@/components/FinancingSection";
 import SecondOpinionCTA from "@/components/SecondOpinionCTA";
+import { BreadcrumbSchema } from "@/components/JsonLd";
 
 const PHONE = "424-424-1579";
 
@@ -15,6 +16,10 @@ export const metadata: Metadata = {
 export default function DuctRepairPage() {
   return (
     <>
+      <BreadcrumbSchema items={[
+        { name: "Services", url: "/#services" },
+        { name: "Duct Repair", url: "/services/duct-repair" }
+      ]} />
       <PageHero
         title="Duct Repair Services in Southern California"
         subtitle="Fix leaks, damaged ductwork, and airflow issues to restore your HVAC system's efficiency."

@@ -4,6 +4,7 @@ import PageHero from "@/components/PageHero";
 import GoBackButton from "@/components/GoBackButton";
 import FinancingSection from "@/components/FinancingSection";
 import SecondOpinionCTA from "@/components/SecondOpinionCTA";
+import { BreadcrumbSchema } from "@/components/JsonLd";
 
 const PHONE = "424-424-1579";
 
@@ -15,6 +16,10 @@ export const metadata: Metadata = {
 export default function ChimneyInstallationPage() {
   return (
     <>
+      <BreadcrumbSchema items={[
+        { name: "Services", url: "/#services" },
+        { name: "Chimney Installation", url: "/services/chimney-installation" }
+      ]} />
       <PageHero
         title="Chimney Installation Services"
         subtitle="Professional installation of new chimneys, liners, and related components."

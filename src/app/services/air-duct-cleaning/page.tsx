@@ -4,6 +4,7 @@ import PageHero from "@/components/PageHero";
 import GoBackButton from "@/components/GoBackButton";
 import FinancingSection from "@/components/FinancingSection";
 import SecondOpinionCTA from "@/components/SecondOpinionCTA";
+import { BreadcrumbSchema } from "@/components/JsonLd";
 
 const PHONE = "424-424-1579";
 
@@ -15,6 +16,10 @@ export const metadata: Metadata = {
 export default function AirDuctCleaningPage() {
   return (
     <>
+      <BreadcrumbSchema items={[
+        { name: "Services", url: "/#services" },
+        { name: "Air Duct Cleaning", url: "/services/air-duct-cleaning" }
+      ]} />
       <PageHero
         title="Air Duct Cleaning in Los Angeles, Orange, Riverside & San Bernardino Counties"
         subtitle="Remove dust, allergens, mold, and debris from your HVAC system for cleaner, healthier indoor air."

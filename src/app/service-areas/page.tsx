@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { cities, counties, getCitiesByCounty } from "@/data/cities";
+import { BreadcrumbSchema } from "@/components/JsonLd";
 
 const PHONE = "424-424-1579";
 const BRAND_NAME = "West Coast Air Duct and Chimney Services";
@@ -13,6 +14,9 @@ export const metadata: Metadata = {
 export default function ServiceAreasPage() {
   return (
     <>
+      <BreadcrumbSchema items={[
+        { name: "Service Areas", url: "/service-areas" }
+      ]} />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-900 to-blue-800 text-white py-16">
         <div className="container-custom">

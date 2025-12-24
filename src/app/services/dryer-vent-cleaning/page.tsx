@@ -4,6 +4,7 @@ import PageHero from "@/components/PageHero";
 import GoBackButton from "@/components/GoBackButton";
 import FinancingSection from "@/components/FinancingSection";
 import SecondOpinionCTA from "@/components/SecondOpinionCTA";
+import { BreadcrumbSchema } from "@/components/JsonLd";
 
 const PHONE = "424-424-1579";
 
@@ -15,6 +16,10 @@ export const metadata: Metadata = {
 export default function DryerVentCleaningPage() {
   return (
     <>
+      <BreadcrumbSchema items={[
+        { name: "Services", url: "/#services" },
+        { name: "Dryer Vent Cleaning", url: "/services/dryer-vent-cleaning" }
+      ]} />
       <PageHero
         title="Dryer Vent Cleaning Services"
         subtitle="Prevent dryer fires and improve efficiency with professional dryer vent cleaning."

@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import PageHero from "@/components/PageHero";
 import GoBackButton from "@/components/GoBackButton";
+import { BreadcrumbSchema } from "@/components/JsonLd";
 
 const PHONE = "424-424-1579";
 
@@ -65,6 +66,9 @@ export default function SecondOpinionPage() {
   if (submitted) {
     return (
       <>
+        <BreadcrumbSchema items={[
+          { name: "Second Opinion", url: "/second-opinion" }
+        ]} />
         <PageHero
           title="Second Opinion on Estimate"
           subtitle="Get an honest assessment of your existing quote from another company"
@@ -101,6 +105,9 @@ export default function SecondOpinionPage() {
 
   return (
     <>
+      <BreadcrumbSchema items={[
+        { name: "Second Opinion", url: "/second-opinion" }
+      ]} />
       <PageHero
         title="Second Opinion on Estimate"
         subtitle="Get an honest assessment of your existing quote from another company"
