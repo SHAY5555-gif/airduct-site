@@ -4,6 +4,7 @@ import PageHero from "@/components/PageHero";
 import GoBackButton from "@/components/GoBackButton";
 import FinancingSection from "@/components/FinancingSection";
 import SecondOpinionCTA from "@/components/SecondOpinionCTA";
+import ServiceAreaLinks from "@/components/ServiceAreaLinks";
 import { BreadcrumbSchema, ServiceSchema } from "@/components/JsonLd";
 
 const PHONE = "424-424-1579";
@@ -101,6 +102,8 @@ export default function DuctRepairPage() {
       </section>
 
       <FinancingSection />
+
+      <ServiceAreaLinks serviceName="Duct Repair" />
 
       <SecondOpinionCTA />
 

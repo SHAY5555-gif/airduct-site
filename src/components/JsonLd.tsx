@@ -61,6 +61,13 @@ export function OrganizationSchema() {
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Chimney Repair" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Chimney Cleaning" } }
       ]
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "5",
+      "bestRating": "5",
+      "worstRating": "1"
     }
   };
 
@@ -79,7 +86,7 @@ export function LocalBusinessSchema() {
     "name": "West Coast Air Duct and Chimney Services",
     "description": "Professional air duct cleaning, duct repair, dryer vent cleaning, and chimney services across Southern California. Same-day appointments and 24/7 emergency service available.",
     "telephone": "424-424-1579",
-    "url": "https://westcoastairduct.com",
+    "url": "https://westcoastairductandchimney.com",
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
@@ -174,7 +181,46 @@ export function LocalBusinessSchema() {
           }
         }
       ]
-    }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "5",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Maria H." },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1" },
+        "reviewBody": "Amazing service! They cleaned our air ducts and the difference in air quality was noticeable immediately. Very professional team."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "James T." },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1" },
+        "reviewBody": "Had them clean our dryer vent after we noticed our dryer taking forever. They found a huge lint buildup - glad we called before it became a fire hazard!"
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Sarah K." },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1" },
+        "reviewBody": "Great chimney inspection and cleaning service. They explained everything and showed me pictures of the work. Very thorough."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Michael R." },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1" },
+        "reviewBody": "Honest pricing and quality work. No upselling or surprise charges. Would definitely recommend to anyone in the area."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Linda P." },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1" },
+        "reviewBody": "We've used them twice now - once for duct cleaning and once for chimney repair. Both times excellent service and results."
+      }
+    ]
   };
 
   return (
