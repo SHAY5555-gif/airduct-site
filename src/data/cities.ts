@@ -474,6 +474,115 @@ export const cities: City[] = [
     nearbyAreas: ["El Dorado Hills", "Rancho Cordova", "Orangevale", "Fair Oaks", "Sacramento"],
     lat: 38.6780,
     lng: -121.1761
+  },
+  // Florida Cities
+  {
+    slug: "orlando",
+    city: "Orlando",
+    county: "Orange County, FL",
+    phone: "424-424-1579",
+    shortDescription: "Professional air duct cleaning and HVAC services for Orlando homes and businesses.",
+    fullDescription: "Orlando's hot, humid climate puts extra strain on your HVAC system year-round. With high humidity levels promoting mold and mildew growth in air ducts, regular professional cleaning is essential for healthy indoor air. Our certified technicians understand the unique challenges Central Florida homes face, from theme park area dust to hurricane season debris. We serve all Orlando neighborhoods with thorough duct cleaning, dryer vent maintenance, and chimney services.",
+    serviceHighlights: ["Florida humidity specialists", "Mold prevention experts", "Same-day appointments"],
+    nearbyAreas: ["Winter Park", "Kissimmee", "Lake Buena Vista", "Altamonte Springs", "Sanford", "Ocoee"],
+    lat: 28.5383,
+    lng: -81.3792
+  },
+  {
+    slug: "tampa",
+    city: "Tampa",
+    county: "Hillsborough County, FL",
+    phone: "424-424-1579",
+    shortDescription: "Expert air duct and dryer vent cleaning services throughout Tampa Bay.",
+    fullDescription: "Tampa Bay's subtropical climate creates the perfect conditions for dust, allergens, and mold to accumulate in your air ducts. Our professional team provides comprehensive air duct cleaning, dryer vent maintenance, and chimney services to keep your Tampa home safe and comfortable. From South Tampa to New Tampa, we understand the specific needs of Florida homes dealing with year-round AC usage, hurricane season, and coastal humidity.",
+    serviceHighlights: ["Tampa Bay area experts", "Hurricane debris cleanup", "24/7 emergency service"],
+    nearbyAreas: ["St. Petersburg", "Clearwater", "Brandon", "Temple Terrace", "Carrollwood", "Westchase"],
+    lat: 27.9506,
+    lng: -82.4572
+  },
+  {
+    slug: "jacksonville",
+    city: "Jacksonville",
+    county: "Duval County, FL",
+    phone: "424-424-1579",
+    shortDescription: "Trusted air duct cleaning and HVAC services for Jacksonville's largest metro area.",
+    fullDescription: "As Florida's largest city by area, Jacksonville homes face diverse air quality challenges from coastal salt air to inland humidity. Our experienced technicians provide professional air duct cleaning, dryer vent services, and chimney maintenance throughout Duval County. Whether you're in the Beaches, Riverside, or the Southside, we deliver thorough service that improves indoor air quality and HVAC efficiency.",
+    serviceHighlights: ["North Florida specialists", "Coastal and inland service", "Commercial services available"],
+    nearbyAreas: ["Jacksonville Beach", "Orange Park", "St. Augustine", "Ponte Vedra", "Mandarin", "Arlington"],
+    lat: 30.3322,
+    lng: -81.6557
+  },
+  {
+    slug: "miami",
+    city: "Miami",
+    county: "Miami-Dade County, FL",
+    phone: "424-424-1579",
+    shortDescription: "Premium air duct cleaning services for Miami homes and commercial properties.",
+    fullDescription: "Miami's tropical climate means your AC runs nearly year-round, accumulating dust, allergens, and moisture in your ductwork. Our professional air duct cleaning services help Miami homeowners combat mold growth, improve air quality, and reduce energy costs. From Coral Gables to Brickell, Coconut Grove to Kendall, we serve all Miami-Dade neighborhoods with expert HVAC cleaning and maintenance services.",
+    serviceHighlights: ["Tropical climate experts", "Mold remediation specialists", "Bilingual technicians"],
+    nearbyAreas: ["Coral Gables", "Miami Beach", "Kendall", "Hialeah", "Coconut Grove", "Doral"],
+    lat: 25.7617,
+    lng: -80.1918
+  },
+  {
+    slug: "vero-beach",
+    city: "Vero Beach",
+    county: "Indian River County, FL",
+    phone: "424-424-1579",
+    shortDescription: "Professional air duct and dryer vent services for Vero Beach and the Treasure Coast.",
+    fullDescription: "Vero Beach's beautiful coastal location comes with unique air quality challenges. Salt air, humidity, and seasonal allergens can all affect your home's HVAC system. Our team provides thorough air duct cleaning, dryer vent maintenance, and chimney services to Treasure Coast residents. We help Vero Beach homeowners maintain clean, healthy indoor air while protecting their HVAC investment.",
+    serviceHighlights: ["Treasure Coast specialists", "Coastal property experts", "Senior-friendly service"],
+    nearbyAreas: ["Sebastian", "Fort Pierce", "Indian River Shores", "Fellsmere", "Winter Beach"],
+    lat: 27.6386,
+    lng: -80.3973
+  },
+  {
+    slug: "gainesville",
+    city: "Gainesville",
+    county: "Alachua County, FL",
+    phone: "424-424-1579",
+    shortDescription: "Reliable air duct cleaning services for Gainesville homes and university area properties.",
+    fullDescription: "Gainesville's mix of historic homes, modern developments, and rental properties near the University of Florida all need professional HVAC maintenance. Our air duct cleaning services help Gainesville residents combat North Central Florida's humidity, pollen, and allergens. From downtown to the suburbs, we provide thorough duct cleaning and dryer vent services with flexible scheduling for busy homeowners and property managers.",
+    serviceHighlights: ["University area service", "Property management rates", "Allergen reduction focus"],
+    nearbyAreas: ["Newberry", "Alachua", "High Springs", "Archer", "Micanopy", "Hawthorne"],
+    lat: 29.6516,
+    lng: -82.3248
+  },
+  {
+    slug: "sarasota",
+    city: "Sarasota",
+    county: "Sarasota County, FL",
+    phone: "424-424-1579",
+    shortDescription: "Expert air duct and chimney services for Sarasota's discerning homeowners.",
+    fullDescription: "Sarasota homeowners expect quality, and our professional air duct cleaning services deliver. From luxury waterfront properties to charming downtown bungalows, we understand the specific needs of Sarasota homes. Florida's humidity and year-round AC usage mean regular duct cleaning is essential for air quality and energy efficiency. Trust our certified technicians to keep your Sarasota home comfortable and healthy.",
+    serviceHighlights: ["Gulf Coast specialists", "Luxury home experience", "Detailed service reports"],
+    nearbyAreas: ["Siesta Key", "Longboat Key", "Bradenton", "Lakewood Ranch", "Venice", "Osprey"],
+    lat: 27.3364,
+    lng: -82.5307
+  },
+  {
+    slug: "palm-coast",
+    city: "Palm Coast",
+    county: "Flagler County, FL",
+    phone: "424-424-1579",
+    shortDescription: "Professional air duct cleaning for Palm Coast and Flagler County homes.",
+    fullDescription: "Palm Coast's planned communities and beautiful natural surroundings deserve the best in home maintenance. Our air duct cleaning services help Palm Coast homeowners maintain healthy indoor air quality despite Florida's humidity and allergens. From the canals to the hammocks, we provide thorough HVAC cleaning, dryer vent maintenance, and chimney services throughout Flagler County.",
+    serviceHighlights: ["Flagler County experts", "HOA experience", "Flexible scheduling"],
+    nearbyAreas: ["Flagler Beach", "Bunnell", "Ormond Beach", "St. Augustine", "Daytona Beach"],
+    lat: 29.5846,
+    lng: -81.2078
+  },
+  {
+    slug: "venice",
+    city: "Venice",
+    county: "Sarasota County, FL",
+    phone: "424-424-1579",
+    shortDescription: "Trusted air duct and dryer vent services for Venice and South Sarasota County.",
+    fullDescription: "Venice's charming downtown, beautiful beaches, and active retirement communities all rely on efficient HVAC systems. Our professional air duct cleaning helps Venice homeowners maintain excellent indoor air quality while reducing energy costs. We understand the unique needs of Southwest Florida homes, from managing humidity to removing allergens, and provide thorough service with attention to detail.",
+    serviceHighlights: ["Southwest Florida specialists", "Active adult community experts", "Thorough inspections"],
+    nearbyAreas: ["Nokomis", "North Port", "Englewood", "Sarasota", "Port Charlotte"],
+    lat: 27.0998,
+    lng: -82.4543
   }
 ];
 
@@ -486,6 +595,7 @@ export function getCitiesByCounty(county: string): City[] {
 }
 
 export const counties = [
+  // California
   "Los Angeles County",
   "Orange County",
   "Riverside County",
@@ -495,5 +605,14 @@ export const counties = [
   "Alameda County",
   "Santa Clara County",
   "Sacramento County",
-  "Placer County"
+  "Placer County",
+  // Florida
+  "Orange County, FL",
+  "Hillsborough County, FL",
+  "Duval County, FL",
+  "Miami-Dade County, FL",
+  "Indian River County, FL",
+  "Alachua County, FL",
+  "Sarasota County, FL",
+  "Flagler County, FL"
 ];

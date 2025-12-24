@@ -12,7 +12,7 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-xl mb-4">{BRAND_NAME}</h3>
             <p className="text-gray-300 mb-4">
-              Professional air duct and chimney services for homes and businesses across Southern California. Same-day appointments and 24/7 emergency service available.
+              Professional air duct and chimney services for homes and businesses across California and Florida. Same-day appointments and 24/7 emergency service available.
             </p>
             <a href={`tel:${PHONE}`} className="text-blue-400 font-bold text-lg hover:text-blue-300">
               {PHONE}
@@ -119,7 +119,7 @@ export default function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span>Serving Los Angeles, Orange, Riverside & San Bernardino Counties</span>
+                <span>Serving California & Florida</span>
               </li>
             </ul>
           </div>

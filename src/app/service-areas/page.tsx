@@ -7,7 +7,7 @@ const BRAND_NAME = "West Coast Air Duct and Chimney Services";
 
 export const metadata: Metadata = {
   title: `Service Areas | ${BRAND_NAME}`,
-  description: "Professional air duct and chimney services across Southern California. Serving Los Angeles, Orange, Riverside, and San Bernardino Counties. Same-day appointments and 24/7 emergency service.",
+  description: "Professional air duct and chimney services across California and Florida. Same-day appointments and 24/7 emergency service available.",
 };
 
 export default function ServiceAreasPage() {
@@ -21,7 +21,7 @@ export default function ServiceAreasPage() {
               Service Areas
             </h1>
             <p className="text-xl text-blue-100 mb-6">
-              Professional air duct and chimney services across Southern California. We serve Los Angeles, Orange, Riverside, and San Bernardino Counties.
+              Professional air duct and chimney services across California and Florida. Same-day appointments and 24/7 emergency service available.
             </p>
             <div className="flex flex-wrap gap-3 mb-6">
               <span className="bg-green-500/20 text-green-200 px-4 py-2 rounded-full text-sm font-medium">
@@ -101,7 +101,7 @@ export default function ServiceAreasPage() {
               Don't See Your City?
             </h2>
             <p className="text-gray-600 mb-6">
-              We serve many more areas throughout Southern California. If you don't see your city listed, give us a call. We're likely able to service your area!
+              We serve many more areas throughout California and Florida. If you don't see your city listed, give us a call. We're likely able to service your area!
             </p>
             <a href={`tel:${PHONE}`} className="btn-primary inline-block">
               Call {PHONE} to Check Availability
@@ -114,7 +114,7 @@ export default function ServiceAreasPage() {
       <section className="section-padding">
         <div className="container-custom">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Why Southern California Trusts Us
+            Why Customers Trust Us
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="text-center p-6">
@@ -162,7 +162,7 @@ export default function ServiceAreasPage() {
         <div className="container-custom text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
           <p className="text-xl text-blue-200 mb-8 max-w-2xl mx-auto">
-            Call today for a free estimate. We provide fast, professional service throughout Southern California.
+            Call today for a free estimate. We provide fast, professional service throughout California and Florida.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={`tel:${PHONE}`} className="btn-secondary text-lg py-4 px-8">
