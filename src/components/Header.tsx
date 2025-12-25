@@ -26,8 +26,8 @@ export default function Header() {
         <div className="flex items-center justify-between py-4">
           <Link href="/" className="flex items-center">
             <Image
-              src="/images/west-coast-logo-new.jpg"
-              alt="West Coast Air Duct and Chimney Services"
+              src="/images/logo-with-text.png"
+              alt="Air Duct & Chimney Services"
               width={280}
               height={70}
               className="w-[160px] sm:w-[200px] md:w-[240px] rounded-lg"
