@@ -31,7 +31,7 @@ export default function ServiceAreaLinks({ serviceName }: ServiceAreaLinksProps)
           {popularCities.map((city) => (
             <Link
               key={city.slug}
-              href={`/service-areas/${city.slug}`}
+              href={`/${city.slug}`}
               className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow text-center group"
             >
               <span className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">

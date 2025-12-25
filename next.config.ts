@@ -31,25 +31,31 @@ const nextConfig: NextConfig = {
   // Redirects for legacy URLs and common variations
   async redirects() {
     return [
-      // Legacy /areas/ URLs redirect to /service-areas/
+      // Redirect old /service-areas/[city] URLs to new /[city] URLs
+      {
+        source: "/service-areas/:slug",
+        destination: "/:slug",
+        permanent: true,
+      },
+      // Legacy /areas/ URLs redirect to new city URLs
       {
         source: "/areas/los-angeles",
-        destination: "/service-areas/los-angeles",
+        destination: "/los-angeles",
         permanent: true,
       },
       {
         source: "/areas/orange-county",
-        destination: "/service-areas/anaheim",
+        destination: "/anaheim",
         permanent: true,
       },
       {
         source: "/areas/riverside",
-        destination: "/service-areas/riverside",
+        destination: "/riverside",
         permanent: true,
       },
       {
         source: "/areas/san-bernardino",
-        destination: "/service-areas/san-bernardino",
+        destination: "/san-bernardino",
         permanent: true,
       },
       // Common URL variations

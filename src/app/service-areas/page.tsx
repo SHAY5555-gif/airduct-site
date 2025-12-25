@@ -77,7 +77,7 @@ export default function ServiceAreasPage() {
                     {countyCities.map((city) => (
                       <Link
                         key={city.slug}
-                        href={`/service-areas/${city.slug}`}
+                        href={`/${city.slug}`}
                         className="bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100 hover:border-blue-200"
                       >
                         <h4 className="font-bold text-gray-900 mb-2">{city.city}</h4>

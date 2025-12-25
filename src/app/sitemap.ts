@@ -78,7 +78,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // City/service area pages
   const cityPages: MetadataRoute.Sitemap = cities.map((city) => ({
-    url: `${SITE_URL}/service-areas/${city.slug}`,
+    url: `${SITE_URL}/${city.slug}`,
     lastModified: currentDate,
     changeFrequency: "monthly" as const,
     priority: 0.7,

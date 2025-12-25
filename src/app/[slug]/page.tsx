@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `Air Duct & Chimney Services in ${city.city} | ${BRAND_NAME}`,
     description: `Professional air duct cleaning, chimney services, and dryer vent cleaning in ${city.city}, ${city.county}. Same-day appointments available. Call ${city.phone}.`,
     alternates: {
-      canonical: `/service-areas/${slug}`,
+      canonical: `/${slug}`,
     },
   };
 }
@@ -60,7 +60,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
     <>
       <BreadcrumbSchema items={[
         { name: "Service Areas", url: "/service-areas" },
-        { name: city.city, url: `/service-areas/${city.slug}` }
+        { name: city.city, url: `/${city.slug}` }
       ]} />
       <PageHero
         title={`Air Duct & Chimney Services in ${city.city}`}
@@ -136,7 +136,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
                     {nearbyCitiesWithPages.slice(0, 8).map((nearbyCity) => (
                       <Link
                         key={nearbyCity.slug}
-                        href={`/service-areas/${nearbyCity.slug}`}
+                        href={`/${nearbyCity.slug}`}
                         className="bg-white px-3 py-2 rounded-lg shadow-sm text-blue-800 hover:bg-blue-100 transition-colors"
                       >
                         {nearbyCity.city}
