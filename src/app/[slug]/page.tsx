@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { cities, getCityBySlug, getNearbyCities } from "@/data/cities";
@@ -11,13 +12,13 @@ import { BreadcrumbSchema } from "@/components/JsonLd";
 const BRAND_NAME = "West Coast Air Duct and Chimney Services";
 
 const services = [
-  { name: "Air Duct Cleaning", slug: "air-duct-cleaning", description: "Remove dust, allergens, and debris from your ductwork" },
-  { name: "Duct Repair", slug: "duct-repair", description: "Fix leaks, gaps, and damaged ductwork" },
-  { name: "Dryer Vent Cleaning", slug: "dryer-vent-cleaning", description: "Prevent fires and improve dryer efficiency" },
-  { name: "System Inspections", slug: "system-inspections", description: "Comprehensive HVAC and chimney inspections" },
-  { name: "Chimney Installation", slug: "chimney-installation", description: "Professional chimney and fireplace installation" },
-  { name: "Chimney Repairs", slug: "chimney-repairs", description: "Fix cracks, leaks, and structural issues" },
-  { name: "Chimney Cleaning", slug: "chimney-cleaning", description: "Remove creosote and debris for safe operation" }
+  { name: "Air Duct Cleaning", slug: "air-duct-cleaning", description: "Remove dust, allergens, and debris from your ductwork", image: "/images/air-duct-cleaning-before-after.png" },
+  { name: "Duct Repair", slug: "duct-repair", description: "Fix leaks, gaps, and damaged ductwork", image: "/images/duct-repair-foil-tape.png" },
+  { name: "Dryer Vent Cleaning", slug: "dryer-vent-cleaning", description: "Prevent fires and improve dryer efficiency", image: "/images/dryer-vent-before-after.png" },
+  { name: "System Inspections", slug: "system-inspections", description: "Comprehensive HVAC and chimney inspections", image: "/images/system-inspection-multimeter.png" },
+  { name: "Chimney Installation", slug: "chimney-installation", description: "Professional chimney and fireplace installation", image: "/images/chimney-flue-installation.png" },
+  { name: "Chimney Repairs", slug: "chimney-repairs", description: "Fix cracks, leaks, and structural issues", image: "/images/chimney-repair-before-after.png" },
+  { name: "Chimney Cleaning", slug: "chimney-cleaning", description: "Remove creosote and debris for safe operation", image: "/images/chimney-cleaning-brush.png" }
 ];
 
 export async function generateStaticParams() {
@@ -172,16 +173,26 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
               <Link
                 key={service.slug}
                 href={`/services/${service.slug}`}
-                className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden group"
               >
-                <h3 className="font-bold text-gray-900 mb-2">{service.name}</h3>
-                <p className="text-gray-600 text-sm mb-3">{service.description}</p>
-                <span className="text-blue-800 text-sm font-medium flex items-center gap-1">
-                  Learn more
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </span>
+                <div className="relative h-48 w-full">
+                  <Image
+                    src={service.image}
+                    alt={service.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-bold text-gray-900 mb-2">{service.name}</h3>
+                  <p className="text-gray-600 text-sm mb-3">{service.description}</p>
+                  <span className="text-blue-800 text-sm font-medium flex items-center gap-1">
+                    Learn more
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
               </Link>
             ))}
           </div>
