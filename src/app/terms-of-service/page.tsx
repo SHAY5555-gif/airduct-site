@@ -3,7 +3,7 @@ import { BreadcrumbSchema } from "@/components/JsonLd";
 
 const PHONE = "424-424-1579";
 const BRAND_NAME = "West Coast Air Duct and Chimney Services";
-const WEBSITE_URL = "westcoastairductandchimney.com";
+const WEBSITE_URL = "airductchimeny.com";
 
 export const metadata: Metadata = {
   title: `Terms of Service | ${BRAND_NAME}`,
