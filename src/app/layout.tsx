@@ -12,7 +12,7 @@ const geistSans = Geist({
 });
 
 const BRAND_NAME = "West Coast Air Duct and Chimney Services";
-const SITE_URL = "https://westcoastairductandchimney.com";
+const SITE_URL = "https://airductchimeny.com";
 
 export const metadata: Metadata = {
   title: `Air Duct & Chimney Services You Can Trust | ${BRAND_NAME}`,
