@@ -108,8 +108,8 @@ export default function ChimneyCleaningPage() {
               </div>
               <div className="relative h-64 rounded-xl overflow-hidden">
                 <Image
-                  src="/images/cozy-fireplace.png"
-                  alt="Clean fireplace ready for safe use"
+                  src="/images/chimney-cleaning-inside.png"
+                  alt="Before and after chimney cleaning showing brick flue"
                   fill
                   className="object-cover"
                 />

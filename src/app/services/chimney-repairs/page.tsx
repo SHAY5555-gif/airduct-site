@@ -87,8 +87,8 @@ export default function ChimneyRepairsPage() {
             <div className="space-y-6">
               <div className="relative h-64 rounded-xl overflow-hidden">
                 <Image
-                  src="/images/chimney-exterior-repair.png"
-                  alt="Chimney masonry repair before and after"
+                  src="/images/chimney-repairs-inside.png"
+                  alt="Before and after chimney repair on residential roof"
                   fill
                   className="object-cover"
                 />

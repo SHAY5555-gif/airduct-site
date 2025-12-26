@@ -107,8 +107,8 @@ export default function DryerVentCleaningPage() {
               </div>
               <div className="relative h-64 rounded-xl overflow-hidden">
                 <Image
-                  src="/images/dryer-vent-before-after.png"
-                  alt="Before and after dryer vent cleaning"
+                  src="/images/dryer-vent-cleaning-inside.png"
+                  alt="Before and after dryer vent cleaning in residential home"
                   fill
                   className="object-cover"
                 />

@@ -84,8 +84,8 @@ export default function AirDuctCleaningPage() {
             </div>
             <div className="relative h-80 lg:h-[500px] rounded-xl overflow-hidden">
               <Image
-                src="/images/duct-before-after.png"
-                alt="Before and after air duct cleaning showing dramatic improvement"
+                src="/images/air-duct-cleaning-inside.png"
+                alt="Before and after air duct cleaning in residential home"
                 fill
                 className="object-cover"
               />

@@ -84,8 +84,8 @@ export default function DuctRepairPage() {
             </div>
             <div className="relative h-80 lg:h-[500px] rounded-xl overflow-hidden">
               <Image
-                src="/images/duct-before-after.png"
-                alt="HVAC duct repair showing clean ductwork"
+                src="/images/duct-repair-inside.png"
+                alt="Before and after duct repair in residential attic"
                 fill
                 className="object-cover"
               />
