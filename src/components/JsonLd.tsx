@@ -1,4 +1,4 @@
-const SITE_URL = "https://westcoastairductandchimney.com";
+const SITE_URL = "https://airductchimeny.com";
 
 export function OrganizationSchema() {
   const schema = {
@@ -86,7 +86,7 @@ export function LocalBusinessSchema() {
     "name": "West Coast Air Duct and Chimney Services",
     "description": "Professional air duct cleaning, duct repair, dryer vent cleaning, and chimney services across Southern California. Same-day appointments and 24/7 emergency service available.",
     "telephone": "424-424-1579",
-    "url": "https://westcoastairductandchimney.com",
+    "url": "https://airductchimeny.com",
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],

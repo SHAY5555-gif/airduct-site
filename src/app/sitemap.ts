@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 import { cities } from "@/data/cities";
 
-const SITE_URL = "https://westcoastairductandchimney.com";
+const SITE_URL = "https://airductchimeny.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const currentDate = new Date().toISOString();
