@@ -1,33 +1,39 @@
 export default function Reviews() {
   const reviews = [
     {
-      name: "Maria H.",
-      location: "Los Angeles",
-      text: "Amazing service! They cleaned our air ducts and the difference in air quality was noticeable immediately. Very professional team.",
+      name: "Jennifer M.",
+      location: "Orlando, FL",
+      text: "The video inspection was eye-opening! They showed me exactly what was in my ducts before and after cleaning. My allergies have improved dramatically since the service.",
       rating: 5
     },
     {
-      name: "James T.",
-      location: "Orange County",
-      text: "Had them clean our dryer vent after we noticed our dryer taking forever. They found a huge lint buildup - glad we called before it became a fire hazard!",
+      name: "Robert K.",
+      location: "Tampa, FL",
+      text: "After Hurricane season our ducts were full of debris. They cleaned everything thoroughly and explained how Florida's humidity affects HVAC systems. Very knowledgeable!",
       rating: 5
     },
     {
-      name: "Sarah K.",
-      location: "Riverside",
-      text: "Great chimney inspection and cleaning service. They explained everything and showed me pictures of the work. Very thorough.",
+      name: "Patricia L.",
+      location: "Jacksonville, FL",
+      text: "Called them for chimney cleaning and was impressed by their professionalism. They arrived on time, did a Level 2 inspection with video, and fixed a water leak I didn't even know about!",
       rating: 5
     },
     {
-      name: "Michael R.",
-      location: "San Bernardino",
-      text: "Honest pricing and quality work. No upselling or surprise charges. Would definitely recommend to anyone in the area.",
+      name: "David S.",
+      location: "Miami, FL",
+      text: "Best AC duct cleaning service in South Florida! They reduced my energy bill by over $100/month. The $50 off made it an amazing deal.",
       rating: 5
     },
     {
-      name: "Linda P.",
-      location: "Pasadena",
-      text: "We've used them twice now - once for duct cleaning and once for chimney repair. Both times excellent service and results.",
+      name: "Michelle R.",
+      location: "Sarasota, FL",
+      text: "Professional team that respects your home. They wore shoe covers, cleaned up everything, and the air quality improvement was immediate. 100% recommend!",
+      rating: 5
+    },
+    {
+      name: "Thomas B.",
+      location: "Gainesville, FL",
+      text: "They explained the mold issue in my ducts was common in Florida. Cleaned everything with HEPA filtration and gave me tips for prevention. Worth every penny!",
       rating: 5
     }
   ];

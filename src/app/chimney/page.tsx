@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import FinancingSection from "@/components/FinancingSection";
 import SecondOpinionCTA from "@/components/SecondOpinionCTA";
+import Reviews from "@/components/Reviews";
 import { BreadcrumbSchema, ServiceSchema } from "@/components/JsonLd";
 import { serviceCategories } from "@/data/serviceCategories";
 import { floridaCities } from "@/data/serviceCategories";
@@ -41,11 +42,55 @@ export default function ChimneyServicesPage() {
         subtitle="Expert chimney sweeping, repair, and installation services to keep your fireplace safe and efficient across Florida."
       />
 
+      {/* Trust Badges */}
+      <section className="py-8 bg-white border-b border-gray-100">
+        <div className="container-custom">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <svg className="w-8 h-8 text-orange-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <div className="font-bold text-gray-900 text-sm">Licensed & Insured</div>
+              <div className="text-gray-600 text-xs mt-1">Fully certified professionals</div>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <svg className="w-8 h-8 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              </div>
+              <div className="font-bold text-gray-900 text-sm">5-Star Reviews</div>
+              <div className="text-gray-600 text-xs mt-1">Trusted by homeowners</div>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div className="font-bold text-gray-900 text-sm">Years of Experience</div>
+              <div className="text-gray-600 text-xs mt-1">Florida chimney specialists</div>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div className="font-bold text-gray-900 text-sm">100% Guaranteed</div>
+              <div className="text-gray-600 text-xs mt-1">Satisfaction promise</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Answer Block for AI Overview optimization */}
-      <section className="py-8 bg-blue-50 border-b border-blue-100">
+      <section className="py-8 bg-orange-50 border-b border-orange-100">
         <div className="container-custom">
           <p className="text-lg text-gray-700 max-w-4xl mx-auto text-center leading-relaxed">
-            <strong>Professional chimney cleaning in Florida typically costs $150-$350</strong> for most homes and takes 1-2 hours. Regular chimney sweeping prevents dangerous chimney fires, removes creosote buildup, and ensures proper ventilation. Our certified chimney technicians provide comprehensive cleaning, inspection, and repair services. We serve major cities across Florida with 24/7 emergency service. <a href={`tel:${PHONE}`} className="text-blue-800 font-semibold hover:underline">Call {PHONE}</a> for a free estimate.
+            <strong>Professional chimney cleaning in Florida typically costs $150-$350</strong> for most homes and takes 1-2 hours. <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full font-semibold text-base">Get $50 OFF your first service</span> Regular chimney sweeping prevents dangerous chimney fires, removes creosote buildup, and ensures proper ventilation. Our certified chimney technicians provide comprehensive cleaning, inspection, and repair services. We serve major cities across Florida with 24/7 emergency service. <a href={`tel:${PHONE}`} className="text-orange-700 font-semibold hover:underline">Call {PHONE}</a> to claim your discount.
           </p>
         </div>
       </section>
@@ -110,6 +155,8 @@ export default function ChimneyServicesPage() {
           </div>
         </div>
       </section>
+
+      <Reviews />
 
       {/* Cities We Serve */}
       <section className="section-padding">

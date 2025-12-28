@@ -49,12 +49,12 @@ export const serviceCategories: ServiceCategory[] = [
       }
     ],
     benefits: [
-      "Improve indoor air quality and reduce allergens",
-      "Increase HVAC system efficiency and reduce energy costs",
-      "Extend the lifespan of your heating and cooling equipment",
-      "Remove dust, mold, and debris from your ductwork",
-      "Reduce fire hazards from dryer vent buildup",
-      "Same-day appointments available"
+      "Combat Florida's humidity with mold-resistant duct cleaning",
+      "Reduce AC bills by up to 30% with cleaner ductwork",
+      "Advanced HEPA filtration removes 99.97% of allergens",
+      "Free video inspection included - see the difference yourself",
+      "Specialized hurricane debris and pollen removal",
+      "100% satisfaction guarantee or your money back"
     ]
   },
   {
@@ -85,12 +85,12 @@ export const serviceCategories: ServiceCategory[] = [
       }
     ],
     benefits: [
-      "Prevent dangerous chimney fires and carbon monoxide poisoning",
-      "Remove creosote buildup and improve fireplace efficiency",
-      "Extend the life of your chimney and fireplace",
-      "Ensure proper ventilation and draft",
-      "Comply with insurance and safety requirements",
-      "24/7 emergency chimney service available"
+      "Level 2 video inspections reveal hidden damage before it's costly",
+      "Stop water intrusion and prevent structural damage",
+      "Save hundreds with preventive maintenance plans",
+      "Certified by national chimney safety organizations",
+      "Same-day emergency response for chimney fires and hazards",
+      "Lifetime warranty on all chimney liner installations"
     ]
   }
 ];

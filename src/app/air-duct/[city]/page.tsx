@@ -135,38 +135,6 @@ export default async function AirDuctCityPage({ params }: { params: Promise<{ ci
                   to confirm service availability.
                 </p>
               </div>
-
-              {/* Nearby Service Areas with Pages (30-mile radius) */}
-              {nearbyCitiesWithPages.length > 0 && (
-                <div className="bg-blue-50 p-6 rounded-xl">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Nearby Service Areas</h3>
-                  <p className="text-gray-600 text-sm mb-4">
-                    We also provide air duct services in these cities near {city.city}:
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {nearbyCitiesWithPages.slice(0, 8).map((nearbyCity) => (
-                      <Link
-                        key={nearbyCity.slug}
-                        href={`/air-duct/${nearbyCity.slug}`}
-                        className="bg-white px-3 py-2 rounded-lg shadow-sm text-blue-800 hover:bg-blue-100 transition-colors"
-                      >
-                        {nearbyCity.city}
-                      </Link>
-                    ))}
-                  </div>
-                  {nearbyCitiesWithPages.length > 8 && (
-                    <Link
-                      href="/air-duct"
-                      className="text-blue-800 text-sm font-medium mt-3 inline-flex items-center gap-1 hover:underline"
-                    >
-                      View all Florida cities
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </Link>
-                  )}
-                </div>
-              )}
             </div>
           </div>
         </div>
@@ -281,6 +249,40 @@ export default async function AirDuctCityPage({ params }: { params: Promise<{ ci
       <FinancingSection />
 
       <SecondOpinionCTA />
+
+      {/* Nearby Service Areas with Pages (30-mile radius) */}
+      {nearbyCitiesWithPages.length > 0 && (
+        <section className="section-padding bg-gray-50">
+          <div className="container-custom">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">Nearby Service Areas</h2>
+            <p className="text-gray-600 text-center mb-8 max-w-2xl mx-auto">
+              We also provide air duct services in these cities near {city.city}:
+            </p>
+            <div className="flex flex-wrap gap-3 justify-center max-w-4xl mx-auto">
+              {nearbyCitiesWithPages.map((nearbyCity) => (
+                <Link
+                  key={nearbyCity.slug}
+                  href={`/air-duct/${nearbyCity.slug}`}
+                  className="bg-white px-4 py-3 rounded-lg shadow-sm text-blue-800 hover:bg-blue-50 hover:shadow-md transition-all font-medium"
+                >
+                  {nearbyCity.city}
+                </Link>
+              ))}
+            </div>
+            <div className="text-center mt-6">
+              <Link
+                href="/air-duct"
+                className="text-blue-800 font-semibold inline-flex items-center gap-2 hover:underline"
+              >
+                View all Florida cities
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* CTA Section */}
       <section className="section-padding bg-blue-900 text-white">
