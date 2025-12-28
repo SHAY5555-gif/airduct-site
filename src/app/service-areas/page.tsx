@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { cities, counties, getCitiesByCounty } from "@/data/cities";
+import { cities } from "@/data/cities";
+import { floridaCities } from "@/data/serviceCategories";
 import { BreadcrumbSchema } from "@/components/JsonLd";
 
 const PHONE = "424-424-1579";
@@ -45,15 +46,73 @@ export default function ServiceAreasPage() {
         </div>
       </section>
 
-      {/* Service Areas by County */}
+      {/* Service Categories */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Our Service Categories
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Choose your service category to see available cities and learn more about our specialized services.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <Link
+              href="/air-duct"
+              className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all border-2 border-blue-100 hover:border-blue-300"
+            >
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                <svg className="w-10 h-10 text-blue-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">Air Duct Services</h3>
+              <p className="text-gray-600 mb-4">
+                Professional air duct cleaning, HVAC maintenance, and dryer vent services for healthier indoor air.
+              </p>
+              <span className="text-blue-800 font-semibold flex items-center gap-2">
+                View air duct services
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </Link>
+
+            <Link
+              href="/chimney"
+              className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all border-2 border-orange-100 hover:border-orange-300"
+            >
+              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6">
+                <svg className="w-10 h-10 text-orange-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">Chimney Services</h3>
+              <p className="text-gray-600 mb-4">
+                Expert chimney sweeping, repair, and installation services to keep your fireplace safe and efficient.
+              </p>
+              <span className="text-orange-700 font-semibold flex items-center gap-2">
+                View chimney services
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Florida Cities We Serve */}
       <section className="section-padding">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Find Your Area
+              Florida Cities We Serve
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Click on your city to learn more about our services in your area, or call us at{" "}
+              Select your city below to view available air duct and chimney services, or call us at{" "}
               <a href={`tel:${PHONE}`} className="text-blue-800 font-semibold hover:underline">
                 {PHONE}
               </a>{" "}
@@ -61,41 +120,33 @@ export default function ServiceAreasPage() {
             </p>
           </div>
 
-          <div className="space-y-12">
-            {counties.map((county) => {
-              const countyCities = getCitiesByCounty(county);
-              return (
-                <div key={county}>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                    <svg className="w-6 h-6 text-blue-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                    {county}
-                  </h3>
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {countyCities.map((city) => (
-                      <Link
-                        key={city.slug}
-                        href={`/${city.slug}`}
-                        className="bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100 hover:border-blue-200"
-                      >
-                        <h4 className="font-bold text-gray-900 mb-2">{city.city}</h4>
-                        <p className="text-gray-600 text-sm mb-3 line-clamp-2">
-                          {city.shortDescription}
-                        </p>
-                        <span className="text-blue-800 text-sm font-medium flex items-center gap-1">
-                          View services
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </span>
-                      </Link>
-                    ))}
-                  </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {cities.filter(city => floridaCities.includes(city.slug)).map((city) => (
+              <div
+                key={city.slug}
+                className="bg-white p-6 rounded-xl shadow-md border border-gray-100"
+              >
+                <h3 className="font-bold text-gray-900 mb-2 text-xl">{city.city}</h3>
+                <p className="text-gray-500 text-sm mb-4">{city.county}</p>
+                <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                  {city.shortDescription}
+                </p>
+                <div className="flex gap-3">
+                  <Link
+                    href={`/air-duct/${city.slug}`}
+                    className="flex-1 text-center bg-blue-50 hover:bg-blue-100 text-blue-800 font-semibold py-2 px-4 rounded-lg transition-colors text-sm"
+                  >
+                    Air Duct
+                  </Link>
+                  <Link
+                    href={`/chimney/${city.slug}`}
+                    className="flex-1 text-center bg-orange-50 hover:bg-orange-100 text-orange-700 font-semibold py-2 px-4 rounded-lg transition-colors text-sm"
+                  >
+                    Chimney
+                  </Link>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </div>
       </section>

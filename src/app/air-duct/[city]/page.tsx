@@ -1,0 +1,304 @@
+import Link from "next/link";
+import Image from "next/image";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { cities, getCityBySlug, getNearbyCities } from "@/data/cities";
+import { serviceCategories, floridaCities } from "@/data/serviceCategories";
+import PageHero from "@/components/PageHero";
+import FinancingSection from "@/components/FinancingSection";
+import SecondOpinionCTA from "@/components/SecondOpinionCTA";
+import { BreadcrumbSchema, ServiceSchema } from "@/components/JsonLd";
+
+const BRAND_NAME = "West Coast Air Duct and Chimney Services";
+
+const airDuctCategory = serviceCategories.find(cat => cat.slug === "air-duct")!;
+
+export async function generateStaticParams() {
+  return floridaCities.map((citySlug) => ({
+    city: citySlug,
+  }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ city: string }> }): Promise<Metadata> {
+  const { city: citySlug } = await params;
+  const city = getCityBySlug(citySlug);
+
+  if (!city || !floridaCities.includes(citySlug)) {
+    return {
+      title: "Service Area Not Found",
+    };
+  }
+
+  return {
+    title: `Air Duct Cleaning Services in ${city.city}, FL | ${BRAND_NAME}`,
+    description: `Professional air duct cleaning, HVAC services, and dryer vent cleaning in ${city.city}, ${city.county}. Improve indoor air quality and system efficiency. Same-day appointments available. Call ${city.phone}.`,
+    alternates: {
+      canonical: `/air-duct/${citySlug}`,
+    },
+  };
+}
+
+export default async function AirDuctCityPage({ params }: { params: Promise<{ city: string }> }) {
+  const { city: citySlug } = await params;
+  const city = getCityBySlug(citySlug);
+
+  if (!city || !floridaCities.includes(citySlug)) {
+    notFound();
+  }
+
+  // Get nearby Florida cities within 30-mile radius
+  const nearbyCitiesAll = getNearbyCities(citySlug, 30);
+  const nearbyCitiesWithPages = nearbyCitiesAll.filter(c => floridaCities.includes(c.slug));
+
+  return (
+    <>
+      <BreadcrumbSchema items={[
+        { name: "Air Duct Services", url: "/air-duct" },
+        { name: city.city, url: `/air-duct/${city.slug}` }
+      ]} />
+      <ServiceSchema
+        serviceName={`Air Duct Cleaning in ${city.city}`}
+        serviceType="HVAC Duct Cleaning Service"
+        description={`Professional air duct cleaning and HVAC services in ${city.city}, ${city.county}. Remove dust, allergens, mold, and debris from your HVAC ductwork for cleaner, healthier indoor air quality.`}
+        url={`/air-duct/${city.slug}`}
+        image="/images/duct-before-after.png"
+      />
+      <PageHero
+        title={`Air Duct Cleaning & HVAC Services in ${city.city}`}
+        subtitle={city.shortDescription}
+        serviceHighlights={city.serviceHighlights}
+        phone={city.phone}
+        cityName={city.city}
+      />
+
+      {/* Answer Block for AI Overview optimization */}
+      <section className="py-8 bg-blue-50 border-b border-blue-100">
+        <div className="container-custom">
+          <p className="text-lg text-gray-700 max-w-4xl mx-auto text-center leading-relaxed">
+            <strong>Professional air duct cleaning in {city.city} typically costs $300-$700</strong> for most homes and takes 2-4 hours. Florida's hot, humid climate promotes mold and allergen buildup in air ducts. Our certified technicians remove dust, allergens, mold, and debris from your entire HVAC system. Same-day appointments available in {city.city}. <a href={`tel:${city.phone}`} className="text-blue-800 font-semibold hover:underline">Call {city.phone}</a> for a free estimate.
+          </p>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="section-padding">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                Professional Air Duct Services in {city.city}, {city.county}
+              </h2>
+              <p className="text-gray-600 mb-6">
+                {city.fullDescription}
+              </p>
+              <p className="text-gray-600 mb-6">
+                Our expert technicians specialize in air duct cleaning, HVAC maintenance, and dryer vent services specifically designed for Florida's unique climate. With year-round air conditioning usage and high humidity levels, {city.city} homes need regular air duct maintenance to prevent mold growth, reduce allergens, and maintain optimal HVAC efficiency.
+              </p>
+              <div className="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg mb-6">
+                <div className="flex items-center gap-3">
+                  <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <div>
+                    <p className="font-semibold text-green-800">Same-Day Appointments Available</p>
+                    <p className="text-green-700 text-sm">Call now for same-day air duct service in {city.city}</p>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+                <div className="flex items-center gap-3">
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <div>
+                    <p className="font-semibold text-blue-800">Financing Available</p>
+                    <p className="text-blue-700 text-sm">Flexible payment options for your convenience</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-6">
+              <div className="bg-gray-50 p-6 rounded-xl">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Also Serving Nearby Areas</h3>
+                <div className="flex flex-wrap gap-2">
+                  {city.nearbyAreas.map((area, idx) => (
+                    <span key={idx} className="bg-white px-3 py-2 rounded-lg shadow-sm text-gray-700">
+                      {area}
+                    </span>
+                  ))}
+                </div>
+                <p className="text-gray-600 text-sm mt-4">
+                  Don't see your area? Call us at{" "}
+                  <a href={`tel:${city.phone}`} className="text-blue-800 font-semibold hover:underline">
+                    {city.phone}
+                  </a>{" "}
+                  to confirm service availability.
+                </p>
+              </div>
+
+              {/* Nearby Service Areas with Pages (30-mile radius) */}
+              {nearbyCitiesWithPages.length > 0 && (
+                <div className="bg-blue-50 p-6 rounded-xl">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Nearby Service Areas</h3>
+                  <p className="text-gray-600 text-sm mb-4">
+                    We also provide air duct services in these cities near {city.city}:
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {nearbyCitiesWithPages.slice(0, 8).map((nearbyCity) => (
+                      <Link
+                        key={nearbyCity.slug}
+                        href={`/air-duct/${nearbyCity.slug}`}
+                        className="bg-white px-3 py-2 rounded-lg shadow-sm text-blue-800 hover:bg-blue-100 transition-colors"
+                      >
+                        {nearbyCity.city}
+                      </Link>
+                    ))}
+                  </div>
+                  {nearbyCitiesWithPages.length > 8 && (
+                    <Link
+                      href="/air-duct"
+                      className="text-blue-800 text-sm font-medium mt-3 inline-flex items-center gap-1 hover:underline"
+                    >
+                      View all Florida cities
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">
+            Our Air Duct Services in {city.city}
+          </h2>
+          <p className="text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+            Comprehensive air duct and HVAC services to improve your indoor air quality, reduce energy costs, and extend the life of your heating and cooling system.
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {airDuctCategory.services.map((service) => (
+              <Link
+                key={service.slug}
+                href={`/services/${service.slug}`}
+                className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow p-6 group"
+              >
+                <div className="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-8 h-8 text-blue-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="font-bold text-gray-900 mb-2 text-lg">{service.name}</h3>
+                <p className="text-gray-600 text-sm mb-3">{service.description}</p>
+                <span className="text-blue-800 text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                  Learn more
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Our Air Duct Services */}
+      <section className="section-padding">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="relative h-80 lg:h-[500px] rounded-xl overflow-hidden">
+              <Image
+                src="/images/air-duct-cleaning-inside.png"
+                alt={`Air duct cleaning service in ${city.city}, Florida`}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Why Air Duct Cleaning is Essential in {city.city}</h2>
+              <p className="text-gray-600 mb-4">
+                Florida's hot, humid climate creates the perfect conditions for mold, allergens, and debris to accumulate in your air ducts. With air conditioning running year-round in {city.city}, these contaminants continuously circulate throughout your home, affecting your health and HVAC efficiency.
+              </p>
+              <h3 className="text-xl font-bold text-gray-900 mt-8 mb-4">Benefits of Professional Air Duct Cleaning:</h3>
+              <ul className="space-y-3">
+                {airDuctCategory.benefits.map((benefit, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-gray-700">{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            Why {city.city} Residents Choose Us
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-blue-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Florida Climate Experts</h3>
+              <p className="text-gray-600">We understand {city.city}'s unique humidity and mold challenges.</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Fast Response</h3>
+              <p className="text-gray-600">Same-day appointments available for urgent air quality issues.</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Certified & Insured</h3>
+              <p className="text-gray-600">Fully licensed, insured, and committed to quality workmanship.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <FinancingSection />
+
+      <SecondOpinionCTA />
+
+      {/* CTA Section */}
+      <section className="section-padding bg-blue-900 text-white">
+        <div className="container-custom text-center">
+          <h2 className="text-3xl font-bold mb-4">Ready for Cleaner Air in {city.city}?</h2>
+          <p className="text-xl text-blue-200 mb-8 max-w-2xl mx-auto">
+            Call today for a free estimate on air duct cleaning and HVAC services. We provide fast, professional service throughout {city.city} and {city.county}.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href={`tel:${city.phone}`} className="btn-secondary text-lg py-4 px-8">
+              Call {city.phone} Now
+            </a>
+            <Link href="/#contact" className="bg-white/10 hover:bg-white/20 text-white font-semibold py-4 px-8 rounded-lg transition-colors">
+              Request Online Quote
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

@@ -20,7 +20,7 @@ fi
 curl -s "https://api.openai.com/v1/responses" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $OPENAI_API_KEY" \
-  -d "{\"model\": \"gpt-5.2\", \"tools\": [{\"type\": \"web_search\"}], \"input\": \"$QUERY\"}" \
+  -d "{\"model\": \"gpt-5.2\", \"reasoning\": {\"effort\": \"medium\"}, \"tools\": [{\"type\": \"web_search\"}], \"input\": \"$QUERY\"}" \
   | python3 -c "
 import sys
 sys.stdout.reconfigure(encoding='utf-8')

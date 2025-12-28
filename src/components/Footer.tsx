@@ -24,38 +24,43 @@ export default function Footer() {
             <h4 className="font-bold text-lg mb-4">Our Services</h4>
             <ul className="space-y-2">
               <li>
+                <Link href="/air-duct" className="text-gray-300 hover:text-white font-semibold">
+                  Air Duct Services
+                </Link>
+              </li>
+              <li className="ml-4">
                 <Link href="/services/air-duct-cleaning" className="text-gray-300 hover:text-white">
                   Air Duct Cleaning
                 </Link>
               </li>
-              <li>
+              <li className="ml-4">
                 <Link href="/services/duct-repair" className="text-gray-300 hover:text-white">
                   Duct Repair
                 </Link>
               </li>
-              <li>
+              <li className="ml-4">
                 <Link href="/services/dryer-vent-cleaning" className="text-gray-300 hover:text-white">
                   Dryer Vent Cleaning
                 </Link>
               </li>
               <li>
-                <Link href="/services/system-inspections" className="text-gray-300 hover:text-white">
-                  System Inspections
+                <Link href="/chimney" className="text-gray-300 hover:text-white font-semibold mt-2 block">
+                  Chimney Services
                 </Link>
               </li>
-              <li>
-                <Link href="/services/chimney-installation" className="text-gray-300 hover:text-white">
-                  Chimney Installation
+              <li className="ml-4">
+                <Link href="/services/chimney-cleaning" className="text-gray-300 hover:text-white">
+                  Chimney Cleaning
                 </Link>
               </li>
-              <li>
+              <li className="ml-4">
                 <Link href="/services/chimney-repairs" className="text-gray-300 hover:text-white">
                   Chimney Repairs
                 </Link>
               </li>
-              <li>
-                <Link href="/services/chimney-cleaning" className="text-gray-300 hover:text-white">
-                  Chimney Cleaning
+              <li className="ml-4">
+                <Link href="/services/chimney-installation" className="text-gray-300 hover:text-white">
+                  Chimney Installation
                 </Link>
               </li>
             </ul>

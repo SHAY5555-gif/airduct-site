@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { cities } from "@/data/cities";
+import { floridaCities } from "@/data/serviceCategories";
 
 const SITE_URL = "https://airductchimeny.com";
 
@@ -76,13 +77,39 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // City/service area pages
-  const cityPages: MetadataRoute.Sitemap = cities.map((city) => ({
-    url: `${SITE_URL}/${city.slug}`,
+  // Service category pages
+  const serviceCategoryPages: MetadataRoute.Sitemap = [
+    {
+      url: `${SITE_URL}/air-duct`,
+      lastModified: currentDate,
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/chimney`,
+      lastModified: currentDate,
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    },
+  ];
+
+  // Florida cities - Air Duct service pages
+  const floridaCityData = cities.filter(city => floridaCities.includes(city.slug));
+
+  const airDuctCityPages: MetadataRoute.Sitemap = floridaCityData.map((city) => ({
+    url: `${SITE_URL}/air-duct/${city.slug}`,
     lastModified: currentDate,
     changeFrequency: "monthly" as const,
-    priority: 0.7,
+    priority: 0.8,
   }));
 
-  return [...staticPages, ...servicePages, ...cityPages];
+  // Florida cities - Chimney service pages
+  const chimneyCityPages: MetadataRoute.Sitemap = floridaCityData.map((city) => ({
+    url: `${SITE_URL}/chimney/${city.slug}`,
+    lastModified: currentDate,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
+  return [...staticPages, ...servicePages, ...serviceCategoryPages, ...airDuctCityPages, ...chimneyCityPages];
 }
