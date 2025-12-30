@@ -30,8 +30,8 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
   }
 
   return {
-    title: `Air Duct Cleaning Services in ${city.city}, FL | ${BRAND_NAME}`,
-    description: `Professional air duct cleaning, HVAC services, and dryer vent cleaning in ${city.city}, ${city.county}. Improve indoor air quality and system efficiency. Same-day appointments available. Call ${city.phone}.`,
+    title: `Air Duct Cleaning Services in ${city.city} | ${BRAND_NAME}`,
+    description: `Professional air duct cleaning, HVAC services, and dryer vent cleaning in ${city.city}. Improve indoor air quality and system efficiency. Same-day appointments available. Call ${city.phone}.`,
     alternates: {
       canonical: `/air-duct/${citySlug}`,
     },
@@ -59,7 +59,7 @@ export default async function AirDuctCityPage({ params }: { params: Promise<{ ci
       <ServiceSchema
         serviceName={`Air Duct Cleaning in ${city.city}`}
         serviceType="HVAC Duct Cleaning Service"
-        description={`Professional air duct cleaning and HVAC services in ${city.city}, ${city.county}. Remove dust, allergens, mold, and debris from your HVAC ductwork for cleaner, healthier indoor air quality.`}
+        description={`Professional air duct cleaning and HVAC services in ${city.city}. Remove dust, allergens, mold, and debris from your HVAC ductwork for cleaner, healthier indoor air quality.`}
         url={`/air-duct/${city.slug}`}
         image="/images/duct-before-after.png"
       />
@@ -86,7 +86,7 @@ export default async function AirDuctCityPage({ params }: { params: Promise<{ ci
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Professional Air Duct Services in {city.city}, {city.county}
+                Professional Air Duct Services in {city.city}
               </h2>
               <p className="text-gray-600 mb-6">
                 {city.fullDescription}
@@ -182,7 +182,7 @@ export default async function AirDuctCityPage({ params }: { params: Promise<{ ci
             <div className="relative h-80 lg:h-[500px] rounded-xl overflow-hidden">
               <Image
                 src="/images/air-duct-cleaning-inside.png"
-                alt={`Air duct cleaning service in ${city.city}, Florida`}
+                alt={`Air duct cleaning service in ${city.city}`}
                 fill
                 className="object-cover"
               />
@@ -289,7 +289,7 @@ export default async function AirDuctCityPage({ params }: { params: Promise<{ ci
         <div className="container-custom text-center">
           <h2 className="text-3xl font-bold mb-4">Ready for Cleaner Air in {city.city}?</h2>
           <p className="text-xl text-blue-200 mb-8 max-w-2xl mx-auto">
-            Call today for a free estimate on air duct cleaning and HVAC services. We provide fast, professional service throughout {city.city} and {city.county}.
+            Call today for a free estimate on air duct cleaning and HVAC services. We provide fast, professional service throughout {city.city}.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={`tel:${city.phone}`} className="btn-secondary text-lg py-4 px-8">
