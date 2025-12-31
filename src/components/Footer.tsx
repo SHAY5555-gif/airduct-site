@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const PHONE = "424-424-1579";
-const BRAND_NAME = "West Coast Air Duct and Chimney Services";
+const BRAND_NAME = "Air Duct Services";
 
 export default function Footer() {
   return (
@@ -12,7 +12,7 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-xl mb-4">{BRAND_NAME}</h3>
             <p className="text-gray-300 mb-4">
-              Professional air duct and chimney services for homes and businesses across California and Florida. Same-day appointments and 24/7 emergency service available.
+              Professional air duct services for homes and businesses across California and Florida. Same-day appointments and 24/7 emergency service available.
             </p>
             <a href={`tel:${PHONE}`} className="text-blue-400 font-bold text-lg hover:text-blue-300">
               {PHONE}
@@ -43,24 +43,9 @@ export default function Footer() {
                   Dryer Vent Cleaning
                 </Link>
               </li>
-              <li>
-                <Link href="/chimney" className="text-gray-300 hover:text-white font-semibold mt-2 block">
-                  Chimney Services
-                </Link>
-              </li>
               <li className="ml-4">
-                <Link href="/services/chimney-cleaning" className="text-gray-300 hover:text-white">
-                  Chimney Cleaning
-                </Link>
-              </li>
-              <li className="ml-4">
-                <Link href="/services/chimney-repairs" className="text-gray-300 hover:text-white">
-                  Chimney Repairs
-                </Link>
-              </li>
-              <li className="ml-4">
-                <Link href="/services/chimney-installation" className="text-gray-300 hover:text-white">
-                  Chimney Installation
+                <Link href="/services/system-inspections" className="text-gray-300 hover:text-white">
+                  System Inspections
                 </Link>
               </li>
             </ul>

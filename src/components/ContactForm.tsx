@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 const PHONE = "424-424-1579";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xwvkyllj";
 
 const services = [
   "Air Duct Cleaning",
@@ -34,12 +35,49 @@ export default function ContactForm() {
     interestedInFinancing: false
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In production, this would send to an API endpoint
-    console.log("Form submitted:", formData);
-    setSubmitted(true);
+    setSubmitting(true);
+    setError("");
+
+    try {
+      const submissionData: Record<string, string> = {
+        name: formData.name,
+        phone: formData.phone,
+        county: formData.county,
+        service: formData.service,
+        message: formData.message || "No additional message",
+        contactPreference: formData.contactPreference,
+        interestedInFinancing: formData.interestedInFinancing ? "Yes" : "No"
+      };
+
+      if (formData.email) {
+        submissionData.email = formData.email;
+      }
+
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(submissionData)
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        const data = await response.json();
+        setError(data.error || "Something went wrong. Please try again.");
+      }
+    } catch {
+      setError("Failed to submit form. Please try again or call us directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -225,12 +263,19 @@ export default function ContactForm() {
               </div>
             </div>
 
+            {error && (
+              <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+                {error}
+              </div>
+            )}
+
             <div className="mt-8">
               <button
                 type="submit"
-                className="w-full btn-primary text-lg py-4"
+                disabled={submitting}
+                className="w-full btn-primary text-lg py-4 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Request Service
+                {submitting ? "Sending..." : "Request Service"}
               </button>
             </div>
           </form>
